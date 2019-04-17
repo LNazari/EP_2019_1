@@ -51,6 +51,16 @@ def main():
         "na entrada do Insper, e quer procurar o professor para pedir um "
         "adiamento do EP (boa sorte...)")
     print()
+    print("Na hora do sufoco!")
+    print("------------------")
+    print()
+    print("Parecia uma boa idéia: vou só jogar um pouquinho/assistir Netflix/"
+        "embaçar em geral. Amanhã eu começo o EP. Mas isso não deu certo...")
+    print()
+    print("É o dia de entregar o EP e você está muuuuito atrasado! Você está "
+        "na entrada do Insper, e quer procurar o professor para pedir um "
+        "adiamento do EP (boa sorte...)")
+    print()
 
     cenarios, nome_cenario_atual = carregar_cenarios()
 
