@@ -39,7 +39,8 @@ def carregar_cenarios():
     }
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
-
+x= cenarios[inicio[titulo]]
+print(carregar_canarios(x))
 
 def main():
     print("Na hora do sufoco!")
@@ -61,7 +62,8 @@ def main():
 
         # Aluno A: substitua este comentário pelo código para imprimir 
         # o cenário atual.
-        print('teste 2')
+        titulo= cenario_atual['titulo']
+        print(titulo)
         opcoes = cenario_atual['opcoes']
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
