@@ -41,16 +41,7 @@ def carregar_cenarios():
     return cenarios, nome_cenario_atual
 
 def main():
-    print("Na hora do sufoco!")
     print("------------------")
-    print()
-    print("Parecia uma boa idéia: vou só jogar um pouquinho/assistir Netflix/"
-        "embaçar em geral. Amanhã eu começo o EP. Mas isso não deu certo...")
-    print()
-    print("É o dia de entregar o EP e você está muuuuito atrasado! Você está "
-        "na entrada do Insper, e quer procurar o professor para pedir um "
-        "adiamento do EP (boa sorte...)")
-    print()
     print("Na hora do sufoco!")
     print("------------------")
     print()
@@ -72,7 +63,13 @@ def main():
         # o cenário atual.
         titulo= cenario_atual['titulo']
         print(titulo)
+        print("----------------")
+        print()
+        #print(cenarios["inicio"]["descricao"])
+        
+        
         opcoes = cenario_atual['opcoes']
+        print(opcoes)
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
@@ -94,5 +91,3 @@ def main():
 # Programa principal.
 if __name__ == "__main__":
     main()
-
-print('olaaaaa')
