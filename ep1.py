@@ -65,11 +65,10 @@ def main():
         print(titulo)
         print("----------------")
         print()
-        #print(cenarios["inicio"]["descricao"])
+        print(cenarios["inicio"]["descricao"])
         
         
         opcoes = cenario_atual['opcoes']
-        print(opcoes)
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
