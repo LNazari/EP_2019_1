@@ -18,7 +18,11 @@ vidas= {'vida_jogador': 100,
         'monstrao': 60 }
 
 
-
+def carregar_inventário():
+    with open("Dicionario inventario ep1.json","r") as itens:
+        conteudo_itens = itens.read()
+    inventario = json.loads(conteudo_itens)
+    return inventario
 
 
 
