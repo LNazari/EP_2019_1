@@ -3,40 +3,32 @@
 # Alunos: 
 # - aluno A: Fulano da Silva, fulanos@insper.edu.br
 # - aluno B: Sicrano de Almeida, sicranoa1@insper.edu.br
+import json
+import random as randint
+#x= bool(randint(0,1))
+#pocao_de_vida=100 de vida 
+#if pocao_de_vida= "algum lugar do jogo"
+    #vida_jogador=100
+#print('opa, voce encontrou uma pocao de vida, sua vida voltou aos 100.')
+    
+vidas= {'vida_jogador': 100,
+        'adaga':15,
+        'bibliotecaria': 15,
+        'monstrinho': 30,
+        'monstrao': 60 }
+
+
+
+
+
+
 
 def carregar_cenarios():
-    cenarios = {
-        "inicio": {
-            "titulo": "Saguao do perigo",
-            "descricao": "Voce esta no saguao de entrada do insper",
-            "opcoes": {
-                "andar professor": "Tomar o elevador para o andar do professor",
-                "biblioteca": "Ir para a biblioteca"
-            }
-        },
-        "andar professor": {
-            "titulo": "Andar do desespero",
-            "descricao": "Voce chegou ao andar da sala do seu professor",
-            "opcoes": {
-                "inicio": "Tomar o elevador para o saguao de entrada",
-                "professor": "Falar com o professor"
-            }
-        },
-        "professor": {
-            "titulo": "O monstro do Python",
-            "descricao": "Voce foi pedir para o professor adiar o EP. "
-                         "O professor revelou que é um monstro disfarçado "
-                         "e devorou sua alma.",
-            "opcoes": {}
-        },
-        "biblioteca": {
-            "titulo": "Caverna da tranquilidade",
-            "descricao": "Voce esta na biblioteca",
-            "opcoes": {
-                "inicio": "Voltar para o saguao de entrada"
-            }
-        }
-    }
+    
+    with open('Dicionario vida ep1.json','r') as cenario:
+        conteudo_cenario = cenario.read()
+    cenarios = json.loads(conteudo_cenario)
+
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
@@ -61,7 +53,7 @@ def main():
 
         titulo= cenario_atual['titulo']
         print(titulo)
-        print("----------------")
+        print("-"*len(titulo))
         print()
         print(cenario_atual["descricao"])
         print()
@@ -73,17 +65,20 @@ def main():
         else:
             print("Escolha sua opção:")
             print()
-            print(cenario_atual['opcoes'])
+            for k,v in cenario_atual["opcoes"].items():
+                print("{0}: {1}".format(k,v))
             escolha = input("O que você quer fazer? ")
             print()
 
             if escolha in opcoes:
+                
                 nome_cenario_atual = escolha
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
 
     print("Você morreu!")
+
 
 
 # Programa principal.
