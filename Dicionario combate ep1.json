@@ -1,0 +1,8 @@
+ {"vidas": {
+        "vida_jogador": 100,
+        "adaga": 15,
+        "bibliotecaria": 15,
+        "monstrinho": 30,
+        "monstrao": 60 }
+ }
+"bibliotecaria" : {}
