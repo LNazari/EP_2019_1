@@ -2,7 +2,10 @@
 #
 # Alunos: 
 # - aluno A: Fulano da Silva, fulanos@insper.edu.br
-# - aluno B: Sicrano de Almeida, sicranoa1@insper.edu.br
+# - aluno B: lucca nazzari, lucca.n17@ghotmail.com 
+
+
+
 import json
 import random as randint
 #x= bool(randint(0,1))
@@ -10,22 +13,31 @@ import random as randint
 #if pocao_de_vida= "algum lugar do jogo"
     #vida_jogador=100
 #print('opa, voce encontrou uma pocao de vida, sua vida voltou aos 100.')
+#ataque fraco, medio forte, pega o ataque da arma e usa *0.8 ou *1 ou *1.2
+#espada=10
+#ataque=randint(0,2)
+    #if ataque=0:
+        #ataque_final=espada*0.8
+    #elif ataque=1:
+        #ataque_final=espada
+    #elif ataque=2:
+        #ataque_final=espada*1.2
     
-vidas= {'vida_jogador': 100,
-        'adaga':15,
-        'bibliotecaria': 15,
-        'monstrinho': 30,
-        'monstrao': 60 }
 
+def carregar_combate():
+    with open('Dicionario combate ep1.json','r') as combate:
+        conteudo_combate = combate.read()
+    combate = json.loads(conteudo_combate)
+    return combate
 
-
-
-
+for a in combate:
+    for b,c in combate[a].items():
+        print("{0}: {1}".format(b,c))        
 
 
 def carregar_cenarios():
     
-    with open('Dicionario vida ep1.json','r') as cenario:
+    with open('Dicionario cenarios ep1.json','r') as cenario:
         conteudo_cenario = cenario.read()
     cenarios = json.loads(conteudo_cenario)
 
