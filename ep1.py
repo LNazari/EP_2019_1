@@ -2,7 +2,7 @@
 #
 # Alunos: 
 # - aluno A: Fulano da Silva, fulanos@insper.edu.br
-# - aluno B: Sicrano de Almeida, sicranoa1@insper.edu.br
+# - aluno B: lucca nazari, luccanazari@insper.com.br
 import json
 import random as randint
 #x= bool(randint(0,1))
