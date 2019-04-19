@@ -28,10 +28,6 @@ import sys
     #elif ataque=2:
         #ataque_final=espada*1.2
 
-        
-def inventario():
-    itens = []
-
 
 def carregar_cenarios():
     with open("Dicionario_Cenarios_EP1.json",'r') as cenario:
@@ -47,7 +43,7 @@ def carregar_monstros():
     return conteudo_monstros
 
 
-def carregar_items():
+def carregar_inventário():
     with open('Dicionario_Inventario_EP1.json','r') as items:
         conteudo_inventario = items.read()
     inventario = json.loads(conteudo_inventario)
@@ -71,6 +67,13 @@ for a in combate:
 
 def main():
     jogador = input("Diga seu nome aventureiro: ")
+    atributos_jogador = {
+        "nome": jogador,
+        "hit points": 100,
+        "pontos de ataque": 12,
+        "pontos de defesa": 7
+    }
+    inventário_itens = []
     print()
     print("Ola {0}, voce tem 100 de vida e uma adaga em seu inventario".format(jogador))
     print()

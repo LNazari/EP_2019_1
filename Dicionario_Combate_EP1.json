@@ -1,23 +1,42 @@
- {"vidas": {
-        "vida_jogador": 100,
+{
+"luta 0": {
+    "titulo": "Parece que uma luta lhe espera!",
+    "nome": monstros[0]["nome"],
+    "fala": monstros[0]["fala"],
+    "status_monstro": monstros[0]["status"]
+    "opcoes": {
+
+    },
+"luta 1": {
+    "titulo": "Parece que uma luta lhe espera!",
+    "nome": monstros[1]["nome"],
+    "fala": monstros[1]["fala"],
+    "status_monstro": monstros[1]["status"]
+    "opcoes": {
         
-        "bibliotecaria":{
-            "ataque": 5,
-            "vida": 15 },
-            
-            
-        "monstrinho": {
-            "ataque": 15,
-            "vida": 30},
-            
-        "monstrao": {
-            "ataque": 25,
-            "vida": 60},
+    },
+"luta 2": {
+    "titulo": "Parece que uma luta lhe espera!",
+    "nome": monstros[2]["nome"],
+    "fala": monstros[2]["fala"],
+    "status_monstro": monstros[2]["status"]
+    "opcoes": {
         
-        "professor": {
-            "ataque": 30,
-            "vida": 100
+    },
+"luta 3": {
+    "titulo": "Parece que uma luta lhe espera!",
+    "nome": monstros[3]["nome"],
+    "fala": monstros[3]["fala"],
+    "status_monstro": monstros[3]["status"]
+    "opcoes": {
         
-        }
-    }
- }
+    },
+"luta 4": {
+    "titulo": "Parece que uma luta lhe espera!",
+    "nome": monstros[4]["nome"],
+    "fala": monstros[4]["fala"],
+    "status_monstro": monstros[4]["status"]
+    "opcoes":{ 
+        
+    } 
+}
