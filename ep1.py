@@ -1,8 +1,9 @@
 # EP 2019-1: Escape Insper
 #
 # Alunos: 
-# - aluno A: Fulano da Silva, fulanos@insper.edu.br
-# - aluno B: lucca nazzari, lucca.n17@ghotmail.com 
+# - aluno A: Lucca Nazari da Silva e Souza, lucca.n17@al.insper.edu.br
+# - aluno B: Luca Cazzolato Machado, lucacm@al.insper.edu.br
+
 
 
 
@@ -35,12 +36,22 @@ def carregar_cenarios():
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
+
+def carregar_items():
+    with open('Dicionario inventario ep1.json','r') as items:
+        conteudo_inventario = items.read()
+    inventario = json.loads(conteudo_inventario)
+    return inventario
+
+
 def carregar_combate():
     with open('Dicionario combate ep1.json','r') as combate:
         conteudo_combate = combate.read()
     combate = json.loads(conteudo_combate)
     return combate
 
+
+combate = carregar_combate()
 for a in combate:
     for b,c in combate[a].items():
         print("{0}: {1}".format(b,c))        
@@ -49,6 +60,7 @@ for a in combate:
 
 
 def main():
+    contador_biblioteca=0  
     print("------------------")
     print("Na hora do sufoco!")
     print("------------------")
@@ -89,6 +101,13 @@ def main():
             if escolha in opcoes:
                 
                 nome_cenario_atual = escolha
+#Luca, consegui fazer o negocio dos monstros so aparecerem 1 vez, a gente cria um contador
+# e tem q satisfazer a condicao do if aqui embaixo, pra lutar contra o monstro
+#no caso, o monstro seria o oi, que so aparece na primeira vez q eu for pra biblioteca
+                if contador_biblioteca==0 and escolha== "biblioteca":
+                    print("oi")
+                    contador_biblioteca+=1
+                    
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True

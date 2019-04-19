@@ -1,4 +1,4 @@
- {"inicio": {
+{       "inicio": {
             "titulo": "Saguao do perigo",
             "descricao": "Voce esta no saguao de entrada do insper",
             "opcoes": {
@@ -24,17 +24,46 @@
             "descricao": "Voce esta na biblioteca",
             "opcoes": {
                 "inicio": "Voltar para o saguao de entrada",
+                "sala secreta": "Ir para a sala secreta",
+                "aquarios": "Ir para os aquarios"
+            }
+        },
+        "aquarios": {
+            "titulo": "Peixes submersos nos estudos",
+            "descricao": "Local de estudo que nunca tem sala sobrando",
+            "opcoes":{
+                "biblioteca": "Voltar a biblioteca"         
+            }    
+        }, 
+        "teletransporte":{
+            "titulo": "toboga multidimensional",
+            "descricao": "voce pode ir para qualquer sala do jogo",
+            "opcoes":{
+                "inicio": "Voltar para o saguao de entrada"           
+            }
+        
+        },      
         "sala secreta": {
-            "titulo": "Esconderijo dos migués",
-            "descricao": "Você está no esconderijo onde os alunos fojem das aulas",
+            "titulo": "Corredor da sala secreta",
+            "descricao": "Voce esta na porta da sala secreta",
             "opcoes": {
+                "entrar": "Entrar na sala",
+                "biblioteca": "Voltar a biblioteca"
+            }
+        },
+        "entrar": {
+            "titulo": "Esconderijo dos migues",
+            "descricao": "Voce esta no esconderijo onde os alunos fogem das aulas",
+            "opcoes": {
+                "teletransporte": "ir para o teletransporte",
+                "sala secreta": "voltar para o corredor"
+            }
+        }                   
+            
+    }   
                 
             
-            
-                    }   
-                }
-            }
-        }
-    }
+        
+    
         
         
