@@ -23,7 +23,7 @@ import random as randint
         #ataque_final=espada
     #elif ataque=2:
         #ataque_final=espada*1.2
-    
+
 
 def carregar_items():
     with open('Dicionario inventario ep1.json','r') as items:
@@ -54,6 +54,7 @@ def carregar_cenarios():
     return cenarios, nome_cenario_atual
 
 def main():
+    contador_biblioteca=0  
     print("------------------")
     print("Na hora do sufoco!")
     print("------------------")
@@ -94,6 +95,13 @@ def main():
             if escolha in opcoes:
                 
                 nome_cenario_atual = escolha
+#Luca, consegui fazer o negocio dos monstros so aparecerem 1 vez, a gente cria um contador
+# e tem q satisfazer a condicao do if aqui embaixo, pra lutar contra o monstro
+#no caso, o monstro seria o oi, que so aparece na primeira vez q eu for pra biblioteca
+                if contador_biblioteca==0 and escolha== "biblioteca":
+                    print("oi")
+                    contador_biblioteca+=1
+                    
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
