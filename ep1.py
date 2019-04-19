@@ -2,14 +2,10 @@
 #
 # Alunos: 
 # - aluno A: Fulano da Silva, fulanos@insper.edu.br
-<<<<<<< HEAD
-# - aluno B: llucca machado
-=======
 # - aluno B: lucca nazzari, lucca.n17@ghotmail.com 
 
 
 
->>>>>>> d89bb66040d1071b9260e5e561194f62749f7ec7
 import json
 import random as randint
 #x= bool(randint(0,1))
@@ -27,6 +23,17 @@ import random as randint
     #elif ataque=2:
         #ataque_final=espada*1.2
     
+        
+
+
+def carregar_cenarios():
+    
+    with open('Dicionario cenarios ep1.json','r') as cenario:
+        conteudo_cenario = cenario.read()
+    cenarios = json.loads(conteudo_cenario)
+
+    nome_cenario_atual = "inicio"
+    return cenarios, nome_cenario_atual
 
 def carregar_combate():
     with open('Dicionario combate ep1.json','r') as combate:
@@ -39,14 +46,7 @@ for a in combate:
         print("{0}: {1}".format(b,c))        
 
 
-def carregar_cenarios():
-    
-    with open('Dicionario cenarios ep1.json','r') as cenario:
-        conteudo_cenario = cenario.read()
-    cenarios = json.loads(conteudo_cenario)
 
-    nome_cenario_atual = "inicio"
-    return cenarios, nome_cenario_atual
 
 def main():
     print("------------------")
