@@ -6,7 +6,7 @@
 
 
 
-
+from pprint import pprint
 import json
 import random as randint
 #x= bool(randint(0,1))
@@ -36,6 +36,11 @@ def carregar_cenarios():
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
+def carregar_monstros():
+    with open("monstros.py", "r") as monstros:
+        conteudo_monstros = monstros.read()
+    return conteudo_monstros
+
 
 def carregar_items():
     with open('Dicionario inventario ep1.json','r') as items:
@@ -58,7 +63,7 @@ for a in combate:
 
 
 
-
+'''
 def main():
     contador_biblioteca=0  
     print("------------------")
@@ -119,3 +124,4 @@ def main():
 # Programa principal.
 if __name__ == "__main__":
     main()
+'''
