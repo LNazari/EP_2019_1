@@ -36,7 +36,10 @@ mapa - diz o nome de todos cenários existentes e se existem teleportes
 easter eggs- premiôs coletados e itens coletados
 
 
+o inventario tem que ser uma lista, armas, itens de vida, são dicionarios, o resto são strings
 
+
+combate - pode ser um novo cenário com descrição, opções 
 
 
 teleporte:
