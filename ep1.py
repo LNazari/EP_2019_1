@@ -72,6 +72,10 @@ for a in combate:
 def main():
     jogador = input("Diga seu nome aventureiro: ")
     print()
+    print("Ola {0}, voce tem 100 de vida e uma adaga em seu inventario".format(jogador))
+    print()
+    pronto= input("voce esta pronto?: ")
+    print("Vamos comecar")
     print("------------------")
     print("Na hora do sufoco!")
     print("------------------")
@@ -88,6 +92,12 @@ def main():
 
     game_over = False
     while not game_over:
+        
+        
+        bibliotecaria=45
+        i=0
+        ataque_jogador=20
+        contador_biblioteca=0
         cenario_atual = cenarios[nome_cenario_atual]
 
         titulo= cenario_atual['titulo']
@@ -110,14 +120,57 @@ def main():
             print()
 
             if escolha in opcoes:
+                cenario_anterior= nome_cenario_atual
                 nome_cenario_atual = escolha
-#Luca, consegui fazer o negocio dos monstros so aparecerem 1 vez, a gente cria um contador
-# e tem q satisfazer a condicao do if aqui embaixo, pra lutar contra o monstro
-#no caso, o monstro seria o oi, que so aparece na primeira vez q eu for pra biblioteca
+#e pq n tava definido antes, acho q algm apago sem quere, mas agr ta indo
+                
+                
                 if contador_biblioteca==0 and escolha== "biblioteca":
-                    print("oi")
                     contador_biblioteca+=1
-#o jogo nao ta rodando com esse if, mas n tem problema pq tamo em fase de desenvolvimento
+                    print("Voce achou a bibliotecaria maligna")
+                    print()
+                    pergunta= input("Deseja lutar? sim ou nao? ")
+                    if pergunta== "nao":
+                        nome_cenario_atual=cenario_anterior
+                        print("voce voltou para o cenario anterior")
+                        
+                    elif pergunta== "sim":                        
+                        while bibliotecaria>0:
+                            ataque_random= random.randint(0,2)
+                            ataque_jogador=20
+                            if ataque_random==0:
+                                print("Ataque fracoo")
+                                print()
+                                ataque_jogador= ataque_jogador*0.8
+                                
+                            elif ataque_random==1:
+                                print("Ataque medio")
+                                print()
+                                ataque_jogador= ataque_jogador*1
+                                
+                            elif ataque_random==2:
+                                print("Ataque fortee")
+                                print()
+                                ataque_jogador= ataque_jogador*1.2
+                                
+                            print("seu ataque foi de {0}: ".format(ataque_jogador))
+                            print()
+                            bibliotecaria= bibliotecaria - ataque_jogador
+                            if bibliotecaria < 0:
+                                bibliotecaria=0
+                            
+                            print("a vida da bibliotecaria ficou {0}: ".format(bibliotecaria))
+                            print()
+                            
+                            if bibliotecaria==0:
+                                print("Parabens, voce derrotou a bibliotecaria")
+                                print()
+                                print("agora voce pode seguir seu caminho")
+                                print()
+                            
+                            
+                   
+
                     
             else:
                 print("Sua indecisão foi sua ruína!")
