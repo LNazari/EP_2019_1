@@ -1,0 +1,42 @@
+roteiro:
+
+aluno começa o jogo no saguao do insper
+seu objetivo é: adiar o EP
+
+cenarios:
+saguao - prédio 1
+fumódromo
+biblioteca
+aquário
+andar professor
+saguao - prédio 2
+fab lab
+andar 2 - tobogã - prédio 2
+andar 2 - reprografia - prédio 1
+auditório
+labs ?
+andar 5 - sala entidades - predio 1
+andar secreto - predio 1
+andar 3 - salas de aula
+
+
+inventário:(itens)
+carteirinha - serve para passar pelo saguao do prédio 1 e saguão prédio 2
+armas - adicionam pontos de ataque ao personagem
+"espada" feita em python - arma necessária para causar dano ao ANDREW +50 atk points
+adaga - +5 atk points
+machado - +15 atk points
+navalha - +10 atk points
+chave de fenda - +atk points
+comidas - adiciona hit points ao personagem
+dinheiros - permite a troca por itens de vida nas food machines
+chaves - permite acesso à salas secretas
+amuleto sagrado - +1 vida (ressucitacao)
+mapa - diz o nome de todos cenários existentes e se existem teleportes
+easter eggs- premiôs coletados e itens coletados
+
+
+
+
+
+teleporte:

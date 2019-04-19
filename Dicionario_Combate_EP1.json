@@ -1,0 +1,23 @@
+ {"vidas": {
+        "vida_jogador": 100,
+        
+        "bibliotecaria":{
+            "ataque": 5,
+            "vida": 15 },
+            
+            
+        "monstrinho": {
+            "ataque": 15,
+            "vida": 30},
+            
+        "monstrao": {
+            "ataque": 25,
+            "vida": 60},
+        
+        "professor": {
+            "ataque": 30,
+            "vida": 100
+        
+        }
+    }
+ }
