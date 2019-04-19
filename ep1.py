@@ -9,6 +9,10 @@
 from pprint import pprint
 import json
 import random as randint
+import time
+import sys
+
+
 #x= bool(randint(0,1))
 #pocao_de_vida=100 de vida 
 #if pocao_de_vida= "algum lugar do jogo"
@@ -23,13 +27,14 @@ import random as randint
         #ataque_final=espada
     #elif ataque=2:
         #ataque_final=espada*1.2
-    
+
         
+def inventario():
+    itens = []
 
 
 def carregar_cenarios():
-    
-    with open('Dicionario cenarios ep1.json','r') as cenario:
+    with open("Dicionario_Cenarios_EP1.json",'r') as cenario:
         conteudo_cenario = cenario.read()
     cenarios = json.loads(conteudo_cenario)
 
@@ -37,35 +42,36 @@ def carregar_cenarios():
     return cenarios, nome_cenario_atual
 
 def carregar_monstros():
-    with open("monstros.py", "r") as monstros:
+    with open("Arquivo_Monstros_EP!", "r") as monstros:
         conteudo_monstros = monstros.read()
     return conteudo_monstros
 
 
 def carregar_items():
-    with open('Dicionario inventario ep1.json','r') as items:
+    with open('Dicionario_Inventario_EP1.json','r') as items:
         conteudo_inventario = items.read()
     inventario = json.loads(conteudo_inventario)
     return inventario
 
 
 def carregar_combate():
-    with open('Dicionario combate ep1.json','r') as combate:
+    with open('Dicionario_Combate_EP1.json','r') as combate:
         conteudo_combate = combate.read()
     combate = json.loads(conteudo_combate)
     return combate
 
-
+'''
 combate = carregar_combate()
 for a in combate:
     for b,c in combate[a].items():
         print("{0}: {1}".format(b,c))        
-
-
-
 '''
+
+
+
 def main():
-    contador_biblioteca=0  
+    jogador = input("Diga seu nome aventureiro: ")
+    print()
     print("------------------")
     print("Na hora do sufoco!")
     print("------------------")
@@ -104,7 +110,6 @@ def main():
             print()
 
             if escolha in opcoes:
-                
                 nome_cenario_atual = escolha
 #Luca, consegui fazer o negocio dos monstros so aparecerem 1 vez, a gente cria um contador
 # e tem q satisfazer a condicao do if aqui embaixo, pra lutar contra o monstro
@@ -112,16 +117,20 @@ def main():
                 if contador_biblioteca==0 and escolha== "biblioteca":
                     print("oi")
                     contador_biblioteca+=1
+#o jogo nao ta rodando com esse if, mas n tem problema pq tamo em fase de desenvolvimento
                     
             else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
 
-    print("Você morreu!")
+    morte = "Você morreu!\n"
+    for l in morte:
+        sys.stdout.write(l)
+        sys.stdout.flush()
+        time.sleep(0.2)
 
 
 
 # Programa principal.
 if __name__ == "__main__":
     main()
-'''
