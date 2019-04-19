@@ -1,15 +1,12 @@
 # EP 2019-1: Escape Insper
 #
 # Alunos: 
-# - aluno A: Fulano da Silva, fulanos@insper.edu.br
-<<<<<<< HEAD
-# - aluno B: llucca machado
-=======
-# - aluno B: lucca nazzari, lucca.n17@ghotmail.com 
+# - aluno A: Lucca Nazari da Silva e Souza, lucca.n17@al.insper.edu.br
+# - aluno B: Luca Cazzolato Machado, lucacm@al.insper.edu.br
 
 
 
->>>>>>> d89bb66040d1071b9260e5e561194f62749f7ec7
+
 import json
 import random as randint
 #x= bool(randint(0,1))
@@ -28,12 +25,20 @@ import random as randint
         #ataque_final=espada*1.2
     
 
+def carregar_items():
+    with open('Dicionario inventario ep1.json','r') as items:
+        conteudo_inventario = items.read()
+    inventario = json.loads(conteudo_inventario)
+    return inventario
+
 def carregar_combate():
     with open('Dicionario combate ep1.json','r') as combate:
         conteudo_combate = combate.read()
     combate = json.loads(conteudo_combate)
     return combate
 
+
+combate = carregar_combate()
 for a in combate:
     for b,c in combate[a].items():
         print("{0}: {1}".format(b,c))        
