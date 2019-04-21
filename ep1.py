@@ -37,14 +37,6 @@ def carregar_cenarios():
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
-
-def carregar_inventário():
-    with open('Dicionario_Inventario_EP1.json','r') as items:
-        conteudo_inventario = items.read()
-    inventario = json.loads(conteudo_inventario)
-    return inventario
-
-
 def carregar_combate_e_monstros():
     monstros = [ 
         {"veterano": {
@@ -141,17 +133,7 @@ def carregar_combate_e_monstros():
         }
     }
     return combate, monstros
-'''
-'''
 
-'''
-combate = carregar_combate()
-for a in combate:
-    for b,c in combate[a].items():
-        print("{0}: {1}".format(b,c))        
-'''
-'''
-'''
 
 def main():
     jogador = input("Diga seu nome aventureiro: ")
@@ -160,7 +142,6 @@ def main():
         "pontos de ataque": 12,
         "pontos de defesa": 7
     }
-    inventário_itens = []
     print()
     print("Ola {0}, voce tem 100 de vida e uma adaga em seu inventario".format(jogador))
     print()
@@ -181,16 +162,14 @@ def main():
     cenarios, nome_cenario_atual = carregar_cenarios()
     combate, monstros = carregar_combate_e_monstros()
     
-    contador_biblioteca=0
+    contador_biblioteca = 0
     game_over = False
     while not game_over:
-        
-        
-        bibliotecaria=45
-        i=0
-        ataque_jogador=20
-        
+
+        cenario_anterior= nome_cenario_atual
+
         cenario_atual = cenarios[nome_cenario_atual]
+
 
         titulo= cenario_atual['titulo']
         print(titulo)
@@ -211,8 +190,7 @@ def main():
                 print("{0}: {1}".format(k,v))
             escolha = input("O que você quer fazer? ")
             print()
-            cenario_anterior= nome_cenario_atual
-            nome_cenario_atual=escolha
+
             
             if escolha not in opcoes:
                 print("Sua indecisão foi sua ruína!")
