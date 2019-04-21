@@ -1,14 +1,14 @@
 # EP 2019-1: Escape Insper
 #
 # Alunos: 
-# - aluno A: Lucca Nazari da Silva e Souza, lucca.n17@al.insper.edu.br
+# - aluno A: Lucca Nazari da Silva e Souza, luccanss@al.insper.edu.br
 # - aluno B: Luca Cazzolato Machado, lucacm@al.insper.edu.br
 
 
 
 from pprint import pprint
 import json
-import random as randint
+from random import randint
 import time
 import sys
 
@@ -125,11 +125,11 @@ def main():
             if escolha in opcoes:
                 cenario_anterior= nome_cenario_atual
                 nome_cenario_atual = escolha
-#e pq n tava definido antes, acho q algm apago sem quere, mas agr ta indo
+
                 
                 
                 if contador_biblioteca==0 and escolha== "biblioteca":
-                    contador_biblioteca+=1
+                    contador_biblioteca= 1
                     print("Voce achou a bibliotecaria maligna")
                     print()
                     pergunta= input("Deseja lutar? sim ou nao? ")
@@ -139,7 +139,7 @@ def main():
                         
                     elif pergunta== "sim":                        
                         while bibliotecaria>0:
-                            ataque_random= random.randint(0,2)
+                            ataque_random= randint(0,2)
                             ataque_jogador=20
                             if ataque_random==0:
                                 print("Ataque fracoo")
