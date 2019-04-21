@@ -160,7 +160,6 @@ def main():
         "pontos de ataque": 12,
         "pontos de defesa": 7
     }
-    inventário_itens = []
     print()
     print("Ola {0}, voce tem 100 de vida e uma adaga em seu inventario".format(jogador))
     print()
@@ -182,15 +181,13 @@ def main():
     combate, monstros = carregar_combate_e_monstros()
     
     contador_biblioteca=0
+
     game_over = False
     while not game_over:
-        
-        
-        bibliotecaria=45
-        i=0
-        ataque_jogador=20
-        
+
+
         cenario_atual = cenarios[nome_cenario_atual]
+        cenario_anterior= nome_cenario_atual
 
         titulo= cenario_atual['titulo']
         print(titulo)
@@ -211,8 +208,6 @@ def main():
                 print("{0}: {1}".format(k,v))
             escolha = input("O que você quer fazer? ")
             print()
-            cenario_anterior= nome_cenario_atual
-            nome_cenario_atual=escolha
             
             if escolha not in opcoes:
                 print("Sua indecisão foi sua ruína!")
@@ -244,6 +239,8 @@ def main():
                     else:
                         print("Sua indecisão foi sua ruína!")
                         game_over = True
+
+            nome_cenario_atual=escolha
                     
             
     morte = "Você morreu!\n"
