@@ -181,7 +181,7 @@ def main():
     cenarios, nome_cenario_atual = carregar_cenarios()
     combate, monstros = carregar_combate_e_monstros()
     
-
+    contador_biblioteca=0
     game_over = False
     while not game_over:
         
@@ -189,7 +189,7 @@ def main():
         bibliotecaria=45
         i=0
         ataque_jogador=20
-        contador_biblioteca=0
+        
         cenario_atual = cenarios[nome_cenario_atual]
 
         titulo= cenario_atual['titulo']
