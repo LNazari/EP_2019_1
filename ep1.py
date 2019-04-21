@@ -1,7 +1,7 @@
 # EP 2019-1: Escape Insper
 #
 # Alunos: 
-# - aluno A: Lucca Nazari da Silva e Souza, lucca.n17@al.insper.edu.br
+# - aluno A: Lucca Nazari da Silva e Souza, luccanss@al.insper.edu.br
 # - aluno B: Luca Cazzolato Machado, lucacm@al.insper.edu.br
 
 
@@ -230,7 +230,7 @@ def main():
 '''
                 cenario_anterior= nome_cenario_atual
                 nome_cenario_atual = escolha
-#e pq n tava definido antes, acho q algm apago sem quere, mas agr ta indo
+
                 
                 
                 if contador_biblioteca==0 and escolha== "biblioteca":
