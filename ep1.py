@@ -234,6 +234,7 @@ def main():
                         print(jogador, "atacou e causou {0} de dano!".format(atributos_jogador["pontos de ataque"]))
                         monstros[0]["veterano"]["status"]["hit points"] += monstros[0]["veterano"]["status"]["pontos de defesa"]
                         print("A vida de Veterano é: {0}".format(monstros[0]["veterano"]["status"]["hit points"]))
+                        print()
                         contador_biblioteca+=1  
                     elif choice == "fugir":
                         nome_cenario_atual=cenario_anterior
@@ -245,7 +246,12 @@ def main():
                         game_over = True
                     
             
-
+    morte = "Você morreu!\n"
+    for l in morte:
+        sys.stdout.write(l)
+        sys.stdout.flush()
+        time.sleep(0.2)
+print("oi")
                 
 '''
                 cenario_anterior= nome_cenario_atual
