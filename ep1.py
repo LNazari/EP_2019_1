@@ -12,115 +12,32 @@ from random import randint
 import time
 import sys
 
+#Váriaveis:
+atributos_jogador = {
+        "hit points": 100,
+        "pontos de ataque": 12,
+        "pontos de defesa": 7
+    }
 
-#x= bool(randint(0,1))
-#pocao_de_vida=100 de vida 
-#if pocao_de_vida= "algum lugar do jogo"
-    #vida_jogador=100
-#print('opa, voce encontrou uma pocao de vida, sua vida voltou aos 100.')
-#ataque fraco, medio forte, pega o ataque da arma e usa *0.8 ou *1 ou *1.2
-#espada=10
-#ataque=randint(0,2)
-    #if ataque=0:
-        #ataque_final=espada*0.8
-    #elif ataque=1:
-        #ataque_final=espada
-    #elif ataque=2:
-        #ataque_final=espada*1.2
-def carregar_monstros():
-    monstros = [ 
-        {
-            "nome": "Veterano",
-            "fala": "Hahahaha, eu cursei anoooos de INSPER, acha mesmo que pode me derrotar?????",
-            "status": {
-                "hit points": 10,
-                "pontos de ataque": 4,
-                "pontos de defesa": 2
-                }
-            },
-        
-        {"bibliotecaria": {
-            "nome": "Bibliotecaria",
-            "fala": "Ora se não é um forasteiro perdido procurando alguns livros.",
-            "status": {
-                "hit points": 15,
-                "pontos de ataque": 5,
-                "pontos de defesa": 4
-                }
-            }
-        },
-        {"fumante": {
-            "nome": "Fumante",
-            "fala": "Cof... Cof... Se você veio pedir um trago, pode ir se preparando pra levar um pé na bunda",
-            "status": {
-                "hit points": 5,
-                "pontos de ataque": 10,
-                "pontos de defesa": 1
-                }
-            }
-        },
-        {"professor 1": {
-            "nome": "Daniel Guzzo",
-            "fala": "Você veio ao FAB LAB, pois bem QUERO UM PROTÓTIPO!",
-            "status": {
-                "hit points": 50,
-                "pontos de ataque": 20,
-                "pontos de defesa": 10
-                }
-            }
-        },
-        {"professor 2": {
-            "nome": "Paulina",
-            "fala": "Iterar e Graficar...",
-            "status": {
-                "hit points": 65,
-                "pontos de ataque": 15,
-                "pontos de defesa": 20
-                }
-            }
-        }
-    ]
-    return monstros
-
-def carregar_atributos(atributos):
-    return atributos
+vida_jogador = atributos_jogador["hit points"]
+ataque_jogador = atributos_jogador["pontos de ataque"]
+defesa_jogador = atributos_jogador["pontos de defesa"]
 
 
-    
-def luta(i):
-    monstros= carregar_monstros()
-    
-    contador_da_vez= randint(1,2)
-    
-    while monstros[i]["status"]["hit points"]>0 and atributos_jogador["hit points"]>0:
-        if contador_da_vez%2 == 0: #vez do jogador
-            print("Sua vez de atacar")
-            print()
-            monstros[i]["status"]["hit points"]-= carregar_atributos(atributos_jogador)["pontos de ataque"]
-            if monstros[i]["status"]["hit points"]<0:
-                monstros[i]["status"]["hit points"]=0
-                print("o monstro morreu")
-            print ("A vida do monstro ficou: {0}".format(monstros[i]["status"]["hit points"]))
-            print()
-   
-        elif contador_da_vez%2 !=0:
-            print("E a vez do monstro de atacar")
-            print()
-            atributos_jogador["hit points"] -= monstros[i]["status"]["pontos de ataque"]
-            if atributos_jogador["hit points"]<0:
-                atributos_jogador["hit points"]=0
-                print("Voce morreu")
-            print("Apos o ataque do monstro, sua vida ficou: {0}".format(atributos_jogador["hit points"]))
-            print()
-            
-            
-        contador_da_vez+=1
-    return "Fim da luta"
+inventario_jogador = ["carteirinha do insper"]
+#adaga = 10 atk points
+#escudo = 10 atk points
+#poção de vida = restore 50 hit points
 
 
+if "adaga" in inventario_jogador:
+    ataque_jogador += 10
+
+if "escudo" in inventario_jogador:
+    defesa_jogador += 10
 
 
-
+#Funções:
 
 def carregar_cenarios():
     with open("Dicionario_Cenarios_EP1.json",'r') as cenario:
@@ -131,36 +48,27 @@ def carregar_cenarios():
     return cenarios, nome_cenario_atual
 
 
-def carregar_inventário():
-    with open('Dicionario_Inventario_EP1.json','r') as items:
-        conteudo_inventario = items.read()
-    inventario = json.loads(conteudo_inventario)
-    return inventario
-
-
-def carregar_combate_e_monstros():
+def carregar_monstros():
     monstros = [ 
         {
-            "nome": "Veterano",
-            "fala": "Hahahaha, eu cursei anoooos de INSPER, acha mesmo que pode me derrotar?????",
-            "status": {
-                "hit points": 10,
-                "pontos de ataque": 4,
-                "pontos de defesa": 2
-                }
-            },
-        
-        {"bibliotecaria": {
             "nome": "Bibliotecaria",
-            "fala": "Ora se não é um forasteiro perdido procurando alguns livros.",
+            "fala": "Ora ora se não é um forasteiro perdido procurando alguns livros.",
             "status": {
                 "hit points": 15,
                 "pontos de ataque": 5,
                 "pontos de defesa": 4
                 }
-            }
-        },
-        {"fumante": {
+            },
+        {
+            "nome": "Veterano",
+            "fala": "Hahahaha, eu cursei anoooos de INSPER, acha mesmo que pode me derrotar?????",
+            "status": {
+                "hit points": 10,
+                "pontos de ataque": 2,
+                "pontos de defesa": 4
+                }
+            },
+        {
             "nome": "Fumante",
             "fala": "Cof... Cof... Se você veio pedir um trago, pode ir se preparando pra levar um pé na bunda",
             "status": {
@@ -168,9 +76,8 @@ def carregar_combate_e_monstros():
                 "pontos de ataque": 10,
                 "pontos de defesa": 1
                 }
-            }
-        },
-        {"professor 1": {
+            },
+        {
             "nome": "Daniel Guzzo",
             "fala": "Você veio ao FAB LAB, pois bem QUERO UM PROTÓTIPO!",
             "status": {
@@ -178,9 +85,8 @@ def carregar_combate_e_monstros():
                 "pontos de ataque": 20,
                 "pontos de defesa": 10
                 }
-            }
-        },
-        {"professor 2": {
+            },
+        {
             "nome": "Paulina",
             "fala": "Iterar e Graficar...",
             "status": {
@@ -189,8 +95,11 @@ def carregar_combate_e_monstros():
                 "pontos de defesa": 20
                 }
             }
-        }
-    ]
+        ]
+    return monstros
+
+def carregar_combate():
+    monstros = carregar_monstros()
     combate = {
         "luta 0": {
                 "titulo": "Parece que uma luta lhe espera!",
@@ -201,65 +110,93 @@ def carregar_combate_e_monstros():
         },
         "luta 1": {
                 "titulo": "Parece que uma luta lhe espera!",
-                "nome": monstros[1]["bibliotecaria"]["nome"],
-                "fala": monstros[1]["bibliotecaria"]["fala"],
-                "status_monstro": monstros[1]["bibliotecaria"]["status"],
+                "nome": monstros[1]["nome"],
+                "fala": monstros[1]["fala"],
+                "status_monstro": monstros[1]["status"],
                 "opcoes": "lutar ou fugir? "
             
         },
         "luta 2": {
                 "titulo": "Parece que uma luta lhe espera!",
-                "nome": monstros[2]["fumante"]["nome"],
-                "fala": monstros[2]["fumante"]["fala"],
-                "status_monstro": monstros[2]["fumante"]["status"],
+                "nome": monstros[2]["nome"],
+                "fala": monstros[2]["fala"],
+                "status_monstro": monstros[2]["status"],
                 "opcoes": "lutar ou fugir? "
             
         },
         "luta 3": {
                 "titulo": "Parece que uma luta lhe espera!",
-                "nome": monstros[3]["professor 1"]["nome"],
-                "fala": monstros[3]["professor 1"]["fala"],
-                "status_monstro": monstros[3]["professor 1"]["status"],
+                "nome": monstros[3]["nome"],
+                "fala": monstros[3]["fala"],
+                "status_monstro": monstros[3]["status"],
                 "opcoes": "lutar ou fugir? "
             
         },
         "luta 4": {
                 "titulo": "Parece que uma luta lhe espera!",
-                "nome": monstros[4]["professor 2"]["nome"],
-                "fala": monstros[4]["professor 2"]["fala"],
-                "status_monstro": monstros[4]["professor 2"]["status"],
+                "nome": monstros[4]["nome"],
+                "fala": monstros[4]["fala"],
+                "status_monstro": monstros[4]["status"],
                 "opcoes": "lutar ou fugir? " 
             
             
         }
     }
-    return combate, monstros
-'''
-'''
+    return combate
 
-'''
-combate = carregar_combate()
-for a in combate:
-    for b,c in combate[a].items():
-        print("{0}: {1}".format(b,c))        
-'''
-'''
-'''
-atributos_jogador = {
-        "hit points": 100,
-        "pontos de ataque": 12,
-        "pontos de defesa": 7
-    }
-<<<<<<< HEAD
-=======
+
+def carregar_atributos(atributos):
+    return atributos
+
+
+def carregar_inventario(inventario):
+    return inventario
+
+
+def luta(i):
+    monstros= carregar_monstros()
+    defesa_monstros = monstros[i]["status"]["pontos de defesa"] 
+    vida_monstros = monstros[i]["status"]["hit points"] + defesa_monstros
+    ataque_jogador = carregar_atributos(atributos_jogador)["pontos de ataque"]
+    ataque_monstro = monstros[i]["status"]["pontos de ataque"]
+
+    contador_da_vez= randint(1,2)
+    
+    while vida_monstros >0 and atributos_jogador["hit points"]>0:
+        if contador_da_vez%2 == 0: #vez do jogador
+            print("Sua vez de atacar")
+            print()
+            print("Você causou {0} de dano".format(ataque_jogador))
+            vida_monstros-= ataque_jogador
+            if vida_monstros < 0:
+                vida_monstros = 0
+                print("O monstro morreu")
+            print ("A vida do monstro ficou: {0}".format(vida_monstros))
+            print()
+   
+        elif contador_da_vez%2 !=0:
+            print("É a vez do monstro de atacar")
+            print()
+            print("O monstro causou {0} de dano".format(ataque_monstro))
+            atributos_jogador["hit points"] -= ataque_monstro
+            if atributos_jogador["hit points"] < 0:
+                atributos_jogador["hit points"] = 0
+                print("Voce morreu")
+                game_over = True
+            print("Após o ataque do monstro, sua vida ficou: {0}".format(atributos_jogador["hit points"]))
+            print()
+            
+            
+        contador_da_vez+=1
+    return "Fim da luta"
+
+
+
 
 def main():
     jogador = input("Diga seu nome aventureiro: ")
-    
-    inventário_itens = []
->>>>>>> a4049f668910d8dd8c27c52efb2353047ab3866e
     print()
-    print("Ola {0}, voce tem 100 de vida e uma adaga em seu inventario".format(jogador))
+    print("Olá {0}, seus atributos são {1} e você começa com sua carteirinha do Insper em seu inventário".format(jogador, carregar_atributos(atributos_jogador)))
     print()
     pronto= input("voce esta pronto?: ")
     print("Vamos comecar")
@@ -276,7 +213,7 @@ def main():
     print()
 
     cenarios, nome_cenario_atual = carregar_cenarios()
-    combate, monstros = carregar_combate_e_monstros()
+    combate = carregar_combate()
     
     contador_biblioteca=0
 
@@ -294,6 +231,7 @@ def main():
         print()
         print(cenario_atual["descricao"])
         print()
+        print("Seu inventário:", carregar_inventario(inventario_jogador))
         
         opcoes = cenario_atual['opcoes']
         if len(opcoes) == 0:
@@ -307,12 +245,9 @@ def main():
                 print("{0}: {1}".format(k,v))
             escolha = input("O que você quer fazer? ")
             print()
-<<<<<<< HEAD
-=======
             
             cenario_anterior= nome_cenario_atual
             nome_cenario_atual=escolha
->>>>>>> a4049f668910d8dd8c27c52efb2353047ab3866e
             
             if escolha not in opcoes:
                 print("Sua indecisão foi sua ruína!")
@@ -320,31 +255,29 @@ def main():
                 
 
             if contador_biblioteca==0:
-                if escolha in opcoes and escolha == "biblioteca":
-                     
+                if escolha == "biblioteca":
                     print(combate["luta 0"]["titulo"])
                     print()
                     print(combate["luta 0"]["nome"])
                     print()
                     print(combate["luta 0"]["fala"])
-                    print("Veterano : ",monstros[0]["status"])
+                    print(combate["luta 0"]["nome"], ":", combate["luta 0"]["status_monstro"])
                     print(jogador, ":", atributos_jogador)
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
-                        print(luta(0))
-                        
-                        
+                        print(luta(0))                       
                         contador_biblioteca+=1  
                     elif choice == "fugir":
-                        nome_cenario_atual= "inicio"
+                        nome_cenario_atual = "inicio"
                         print()
-                        print("voce voltou para o cenario anterior")
+                        print("Você voltou para o cenário anterior")
                         print()
                     else:
                         print("Sua indecisão foi sua ruína!")
                         game_over = True
-
-            nome_cenario_atual=escolha
+            else:
+                if escolha in opcoes:
+                    nome_cenario_atual=escolha
                     
             
     morte = "Voce morreu!\n"
@@ -354,72 +287,6 @@ def main():
         time.sleep(0.2)
 
                 
-'''
-                cenario_anterior= nome_cenario_atual
-                nome_cenario_atual = escolha
-
-                
-                
-                if contador_biblioteca==0 and escolha== "biblioteca":
-                    contador_biblioteca= 1
-                    print("Voce achou a bibliotecaria maligna")
-                    print()
-                    pergunta= input("Deseja lutar? sim ou nao? ")
-                    if pergunta== "nao":
-                        nome_cenario_atual=cenario_anterior
-                        print("voce voltou para o cenario anterior")
-                        
-                    elif pergunta== "sim":                        
-                        while bibliotecaria>0:
-                            ataque_random= randint(0,2)
-                            ataque_jogador=20
-                            if ataque_random==0:
-                                print("Ataque fracoo")
-                                print()
-                                ataque_jogador= ataque_jogador*0.8
-                                
-                            elif ataque_random==1:
-                                print("Ataque medio")
-                                print()
-                                ataque_jogador= ataque_jogador*1
-                                
-                            elif ataque_random==2:
-                                print("Ataque fortee")
-                                print()
-                                ataque_jogador= ataque_jogador*1.2
-                                
-                            print("seu ataque foi de {0}: ".format(ataque_jogador))
-                            print()
-                            bibliotecaria= bibliotecaria - ataque_jogador
-                            if bibliotecaria < 0:
-                                bibliotecaria=0
-                            
-                            print("a vida da bibliotecaria ficou {0}: ".format(bibliotecaria))
-                            print()
-                            
-                            if bibliotecaria==0:
-                                print("Parabens, voce derrotou a bibliotecaria")
-                                print()
-                                print("agora voce pode seguir seu caminho")
-                                print()
-                else:
-                    nome_cenario_atual = escolha
-                            '''
-                            
-                   
-
-'''      
-           else:
-                print("Sua indecisão foi sua ruína!")
-                game_over = True
-
-    morte = "Você morreu!\n"
-    for l in morte:
-        sys.stdout.write(l)
-        sys.stdout.flush()
-        time.sleep(0.2)
-'''
-
 
 # Programa principal.
 if __name__ == "__main__":
