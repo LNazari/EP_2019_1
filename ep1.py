@@ -148,8 +148,8 @@ for a in combate:
     for b,c in combate[a].items():
         print("{0}: {1}".format(b,c))        
 '''
-
-
+'''
+'''
 
 def main():
     jogador = input("Diga seu nome aventureiro: ")
