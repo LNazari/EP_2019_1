@@ -46,13 +46,6 @@ def carregar_inventário():
 
 
 def carregar_combate_e_monstros():
-<<<<<<< HEAD
-    with open("Dicionario_Combate_e_Monstros_EP1.json",'r') as combates_e_monstros:
-        conteudo_combate_e_monstros = combates_e_monstros.read()
-    lutas= json.loads(conteudo_combate_e_monstros)
-    return lutas
-    
-=======
     monstros = [ 
         {"veterano": {
             "nome": "Veterano",
@@ -150,7 +143,6 @@ def carregar_combate_e_monstros():
     return combate, monstros
 '''
 '''
->>>>>>> 43626cd253dc4900e1598551232a21667dfc6a40
 '''
 combate = carregar_combate()
 for a in combate:
@@ -238,6 +230,13 @@ def main():
                         print()
                         print("voce voltou para o cenario anterior")
                         print("/n")
+                    else:
+                        print("Sua indecisão foi sua ruína!")
+                        game_over = True
+
+            else:
+                nome_cenario_atual = escolha
+
 
                 
 '''
