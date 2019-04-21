@@ -84,13 +84,43 @@ def carregar_monstros():
 
 def carregar_atributos(atributos):
     return atributos
+
+
     
 def luta(i):
     monstros= carregar_monstros()
     
-    while monstros[i]["status"]["hit points"]>0:
-        monstros[i]["status"]["hit points"]-= carregar_atributos(atributos_jogador)["pontos de ataque"]
-    return "Voce matou o monstro"
+    contador_da_vez= randint(1,2)
+    
+    while monstros[i]["status"]["hit points"]>0 and atributos_jogador["hit points"]>0:
+        if contador_da_vez%2 == 0: #vez do jogador
+            print("Sua vez de atacar")
+            print()
+            monstros[i]["status"]["hit points"]-= carregar_atributos(atributos_jogador)["pontos de ataque"]
+            if monstros[i]["status"]["hit points"]<0:
+                monstros[i]["status"]["hit points"]=0
+                print("o monstro morreu")
+            print ("A vida do monstro ficou: {0}".format(monstros[i]["status"]["hit points"]))
+            print()
+   
+        elif contador_da_vez%2 !=0:
+            print("E a vez do monstro de atacar")
+            print()
+            atributos_jogador["hit points"] -= monstros[i]["status"]["pontos de ataque"]
+            if atributos_jogador["hit points"]<0:
+                atributos_jogador["hit points"]=0
+                print("Voce morreu")
+            print("Apos o ataque do monstro, sua vida ficou: {0}".format(atributos_jogador["hit points"]))
+            print()
+            
+            
+        contador_da_vez+=1
+    return "Fim da luta"
+
+
+
+
+
 
 def carregar_cenarios():
     with open("Dicionario_Cenarios_EP1.json",'r') as cenario:
@@ -258,6 +288,7 @@ def main():
         cenario_anterior= nome_cenario_atual
 
         titulo= cenario_atual['titulo']
+        print()
         print(titulo)
         print("-"*len(titulo))
         print()
@@ -316,7 +347,7 @@ def main():
             nome_cenario_atual=escolha
                     
             
-    morte = "Você morreu!\n"
+    morte = "Voce morreu!\n"
     for l in morte:
         sys.stdout.write(l)
         sys.stdout.flush()
