@@ -57,8 +57,8 @@ for a in combate:
     for b,c in combate[a].items():
         print("{0}: {1}".format(b,c))        
 '''
-
-
+'''
+'''
 
 def main():
     jogador = input("Diga seu nome aventureiro: ")
@@ -131,9 +131,6 @@ def main():
                     if choice == "lutar":
                         print(jogador, "atacou e causou {0} de dano!".format(atributos_jogador["pontos de ataque"]))
                         monstros[0]["veterano"]["status"]["hit points"] += monstros[0]["veterano"]["status"]["pontos de defesa"]
-                        print(monstros[0]["veterano"]["status"]["hit points"]) 
-                        monstros[0]["veterano"]["status"]["hit points"] -= atributos_jogador["pontos de ataque"]
-                        print(monstros[0]["veterano"]["status"]["hit points"])
                         print("A vida de Veterano é: {0}".format(monstros[0]["veterano"]["status"]["hit points"]))
 
                     elif choice == "fugir":
