@@ -191,11 +191,6 @@ def main():
             escolha = input("O que você quer fazer? ")
             print()
 
-
-
-            cenario_anterior= nome_cenario_atual
-
-            nome_cenario_atual=escolha
             
             if escolha not in opcoes:
                 print("Sua indecisão foi sua ruína!")
