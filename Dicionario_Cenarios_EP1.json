@@ -93,7 +93,7 @@
             "2 andar": "Tomar elevador para o 2°andar",
             "predio 2": "Voltar para o saguão de entrada do prédio 2"
         }
-    }
+    },
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-}
+
     
 
 
@@ -130,7 +130,6 @@
 
 
 
-    }
 
 
 
@@ -142,8 +141,31 @@
 
 
 
-    }   
-                
+
+        "sauna dos professores": {
+            "titulo": "Repouso dos professores",
+            "descricao": "A sauna dos professores e o local onde eles repousam \n e nao convidam nenhum aluno.",
+            "opcoes": {
+                "andar professor": "Retornar ao corredor do andar dos professores",
+                "cantina": "Ir para a cantina",
+                "sala das entidades": "Ir para a sala de entidades"
+            }
+        },
+         "cantina": {
+            "titulo": "Reposicao de energia",
+            "descricao": "A cantina e o local onde os alunos repoe as energias após muito estudo (ou nao)",
+            "opcoes": {
+                "sauna dos professores": "Retornar para a sauna dos professores",
+                "professor": "Encontrar o tao esperado chefe final"    
+            }
+        },
+         "sala das entidades": {
+            "titulo": "reuniao das entidades",
+            "descricao": "local onde ocorre a reuniao dos membros das entidades",
+            "opcoes": {
+                "sauna dos professores": "Retornar para se banhar na sauna dos professores"    
+            }
+        }
             
         
     
