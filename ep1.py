@@ -162,11 +162,14 @@ def main():
     cenarios, nome_cenario_atual = carregar_cenarios()
     combate, monstros = carregar_combate_e_monstros()
     
+    contador_biblioteca = 0
     game_over = False
     while not game_over:
 
         cenario_anterior= nome_cenario_atual
+
         cenario_atual = cenarios[nome_cenario_atual]
+
 
         titulo= cenario_atual['titulo']
         print(titulo)
@@ -179,6 +182,7 @@ def main():
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
+        
         else:
             print("Escolha sua opção:")
             print()
@@ -186,32 +190,44 @@ def main():
                 print("{0}: {1}".format(k,v))
             escolha = input("O que você quer fazer? ")
             print()
-            if escolha in opcoes and escolha == "biblioteca":
-                print(combate["luta 0"]["titulo"])
-                print()
-                print(combate["luta 0"]["nome"])
-                print()
-                print(combate["luta 0"]["fala"])
-                print("Veterano : ",monstros[0]["veterano"]["status"])
-                print(jogador, ":", atributos_jogador)
-                choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
-                if choice == "lutar":
-                    print(jogador, "atacou e causou {0} de dano!".format(atributos_jogador["pontos de ataque"]))
-                    monstros[0]["veterano"]["status"]["hit points"] += monstros[0]["veterano"]["status"]["pontos de defesa"]
-                    print("A vida de Veterano é: {0}".format(monstros[0]["veterano"]["status"]["hit points"]))
-                elif choice == "fugir":
-                    nome_cenario_atual=cenario_anterior
+
+
+
+            cenario_anterior= nome_cenario_atual
+
+            nome_cenario_atual=escolha
+            
+            if escolha not in opcoes:
+                print("Sua indecisão foi sua ruína!")
+                game_over = True
+                
+
+            while contador_biblioteca==0:
+                if escolha in opcoes and escolha == "biblioteca":
+                     
+                    print(combate["luta 0"]["titulo"])
                     print()
-                    print("voce voltou para o cenario anterior")
-                    print("/n")
-                else:
-                    print("Sua indecisão foi sua ruína!")
-                    game_over = True
-
-            else:
-                nome_cenario_atual = escolha
-
-
+                    print(combate["luta 0"]["nome"])
+                    print()
+                    print(combate["luta 0"]["fala"])
+                    print("Veterano : ",monstros[0]["veterano"]["status"])
+                    print(jogador, ":", atributos_jogador)
+                    choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
+                    if choice == "lutar":
+                        print(jogador, "atacou e causou {0} de dano!".format(atributos_jogador["pontos de ataque"]))
+                        monstros[0]["veterano"]["status"]["hit points"] += monstros[0]["veterano"]["status"]["pontos de defesa"]
+                        print("A vida de Veterano é: {0}".format(monstros[0]["veterano"]["status"]["hit points"]))
+                        contador_biblioteca+=1  
+                    elif choice == "fugir":
+                        nome_cenario_atual=cenario_anterior
+                        print()
+                        print("voce voltou para o cenario anterior")
+                        print()
+                    else:
+                        print("Sua indecisão foi sua ruína!")
+                        game_over = True
+                    
+            
 
                 
 '''
