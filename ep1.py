@@ -263,7 +263,7 @@ def main():
                     print(combate["luta 0"]["fala"])
                     print(combate["luta 0"]["nome"], ":", combate["luta 0"]["status_monstro"])
                     print(jogador, ":", atributos_jogador)
-                    choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
+                    choice = input("O que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
                         print(luta(0))                       
                         contador_biblioteca+=1  
