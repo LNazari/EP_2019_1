@@ -46,11 +46,111 @@ def carregar_inventário():
 
 
 def carregar_combate_e_monstros():
+<<<<<<< HEAD
     with open("Dicionario_Combate_e_Monstros_EP1.json",'r') as combates_e_monstros:
         conteudo_combate_e_monstros = combates_e_monstros.read()
     lutas= json.loads(conteudo_combate_e_monstros)
     return lutas
     
+=======
+    monstros = [ 
+        {"veterano": {
+            "nome": "Veterano",
+            "fala": "Hahahaha, eu cursei anoooos de INSPER, acha mesmo que pode me derrotar?????",
+            "status": {
+                "hit points": 10,
+                "pontos de ataque": 4,
+                "pontos de defesa": 2
+                }
+            }
+        },
+        {"bibliotecaria": {
+            "nome": "Bibliotecaria",
+            "fala": "Ora se não é um forasteiro perdido procurando alguns livros.",
+            "status": {
+                "hit points": 15,
+                "pontos de ataque": 5,
+                "pontos de defesa": 4
+                }
+            }
+        },
+        {"fumante": {
+            "nome": "Fumante",
+            "fala": "Cof... Cof... Se você veio pedir um trago, pode ir se preparando pra levar um pé na bunda",
+            "status": {
+                "hit points": 5,
+                "pontos de ataque": 10,
+                "pontos de defesa": 1
+                }
+            }
+        },
+        {"professor 1": {
+            "nome": "Daniel Guzzo",
+            "fala": "Você veio ao FAB LAB, pois bem QUERO UM PROTÓTIPO!",
+            "status": {
+                "hit points": 50,
+                "pontos de ataque": 20,
+                "pontos de defesa": 10
+                }
+            }
+        },
+        {"professor 2": {
+            "nome": "Paulina",
+            "fala": "Iterar e Graficar...",
+            "status": {
+                "hit points": 65,
+                "pontos de ataque": 15,
+                "pontos de defesa": 20
+                }
+            }
+        }
+    ]
+    combate = {
+        "luta 0": {
+                "titulo": "Parece que uma luta lhe espera!",
+                "nome": monstros[0]["veterano"]["nome"],
+                "fala": monstros[0]["veterano"]["fala"],
+                "status_monstro": monstros[0]["veterano"]["status"],
+                "opcoes": "lutar ou fugir? "
+        },
+        "luta 1": {
+                "titulo": "Parece que uma luta lhe espera!",
+                "nome": monstros[1]["bibliotecaria"]["nome"],
+                "fala": monstros[1]["bibliotecaria"]["fala"],
+                "status_monstro": monstros[1]["bibliotecaria"]["status"],
+                "opcoes": "lutar ou fugir? "
+            
+        },
+        "luta 2": {
+                "titulo": "Parece que uma luta lhe espera!",
+                "nome": monstros[2]["fumante"]["nome"],
+                "fala": monstros[2]["fumante"]["fala"],
+                "status_monstro": monstros[2]["fumante"]["status"],
+                "opcoes": "lutar ou fugir? "
+            
+        },
+        "luta 3": {
+                "titulo": "Parece que uma luta lhe espera!",
+                "nome": monstros[3]["professor 1"]["nome"],
+                "fala": monstros[3]["professor 1"]["fala"],
+                "status_monstro": monstros[3]["professor 1"]["status"],
+                "opcoes": "lutar ou fugir? "
+            
+        },
+        "luta 4": {
+                "titulo": "Parece que uma luta lhe espera!",
+                "nome": monstros[4]["professor 2"]["nome"],
+                "fala": monstros[4]["professor 2"]["fala"],
+                "status_monstro": monstros[4]["professor 2"]["status"],
+                "opcoes": "lutar ou fugir? " 
+            
+            
+        }
+    }
+    return combate, monstros
+'''
+'''
+>>>>>>> 43626cd253dc4900e1598551232a21667dfc6a40
 '''
 combate = carregar_combate()
 for a in combate:
