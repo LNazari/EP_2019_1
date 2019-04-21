@@ -216,6 +216,7 @@ def main():
     combate = carregar_combate()
     
     contador_biblioteca=0
+    contador_aquarios=0
 
     game_over = False
     while not game_over:
@@ -254,7 +255,7 @@ def main():
                 game_over = True
                 
 
-            if contador_biblioteca==0:
+            if contador_biblioteca==0 or contador_aquarios==0:
                 if escolha == "biblioteca":
                     print(combate["luta 0"]["titulo"])
                     print()
@@ -275,6 +276,36 @@ def main():
                     else:
                         print("Sua indecisão foi sua ruína!")
                         game_over = True
+                
+                elif escolha== "aquarios":
+                    print(combate["luta 1"]["titulo"])
+                    print()
+                    print(combate["luta 1"]["nome"])
+                    print()
+                    print(combate["luta 1"]["fala"])
+                    print(combate["luta 1"]["nome"], ":", combate["luta 1"]["status_monstro"])
+                    print(jogador, ":", atributos_jogador)
+                    choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
+                    if choice == "lutar":
+                        print(luta(1))                       
+                        contador_aquarios+=1  
+                    elif choice == "fugir":
+                        nome_cenario_atual = "inicio"
+                        print()
+                        print("Você voltou para o cenário anterior")
+                        print()
+                    else:
+                        print("Sua indecisão foi sua ruína!")
+                        game_over = True
+                    
+
+                        
+                 
+            
+            
+            
+            
+            
             else:
                 if escolha in opcoes:
                     nome_cenario_atual=escolha

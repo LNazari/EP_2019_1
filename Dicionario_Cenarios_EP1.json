@@ -4,7 +4,8 @@
         "descricao": "Você está no saguão de entrada do Insper",
         "opcoes": {
             "andar professor": "Tomar o elevador para o andar do professor",
-            "biblioteca": "Ir para a biblioteca"
+            "biblioteca": "Ir para a biblioteca",
+            "fumodromo": "Ir para o fumodromo"
         }
     },
 
@@ -81,7 +82,7 @@
     
     "objeto": {
         "titulo": "Tobogã Dimensional",
-        "descricao": "No lugar do objeto suspeito havia um pano, você o remove e descobre uma grande entrada: é uma porta dimensional que concede acesso levar para te levar qualquer lugar, com uma condição: dizer o nome do local",
+        "descricao": "No lugar do objeto suspeito havia um pano, você o remove e descobre uma grande entrada:\n é uma porta dimensional que concede acesso levar para te levar qualquer lugar,\n com uma condição: dizer o nome do local",
         "opcoes": "digite o nome do lugar que deseja ir"
     },
 
@@ -95,77 +96,31 @@
         }
     },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        "sauna dos professores": {
-            "titulo": "Repouso dos professores",
-            "descricao": "A sauna dos professores e o local onde eles repousam \n e nao convidam nenhum aluno.",
-            "opcoes": {
-                "andar professor": "Retornar ao corredor do andar dos professores",
-                "cantina": "Ir para a cantina",
-                "sala das entidades": "Ir para a sala de entidades"
+    "sauna dos professores": {
+        "titulo": "Repouso dos professores",
+        "descricao": "A sauna dos professores e o local onde eles repousam \n e nao convidam nenhum aluno.",
+        "opcoes": {
+               "andar professor": "Retornar ao corredor do andar dos professores",
+               "cantina": "Ir para a cantina",
+               "sala das entidades": "Ir para a sala de entidades"
             }
         },
-         "cantina": {
-            "titulo": "Reposicao de energia",
-            "descricao": "A cantina e o local onde os alunos repoe as energias após muito estudo (ou nao)",
-            "opcoes": {
+    "cantina": {
+        "titulo": "Reposicao de energia",
+        "descricao": "A cantina e o local onde os alunos repoe as energias após muito estudo (ou nao)",
+        "opcoes": {
                 "sauna dos professores": "Retornar para a sauna dos professores",
                 "professor": "Encontrar o tao esperado chefe final"    
             }
         },
-         "sala das entidades": {
-            "titulo": "reuniao das entidades",
-            "descricao": "local onde ocorre a reuniao dos membros das entidades",
-            "opcoes": {
+    "sala das entidades": {
+        "titulo": "reuniao das entidades",
+        "descricao": "local onde ocorre a reuniao dos membros das entidades",
+        "opcoes": {
                 "sauna dos professores": "Retornar para se banhar na sauna dos professores"    
             }
         }
+    }
             
         
     
