@@ -141,7 +141,8 @@ def carregar_combate_e_monstros():
         }
     }
     return combate, monstros
-
+'''
+'''
 '''
 combate = carregar_combate()
 for a in combate:
