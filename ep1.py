@@ -27,7 +27,70 @@ import sys
         #ataque_final=espada
     #elif ataque=2:
         #ataque_final=espada*1.2
+def carregar_monstros():
+    monstros = [ 
+        {
+            "nome": "Veterano",
+            "fala": "Hahahaha, eu cursei anoooos de INSPER, acha mesmo que pode me derrotar?????",
+            "status": {
+                "hit points": 10,
+                "pontos de ataque": 4,
+                "pontos de defesa": 2
+                }
+            },
+        
+        {"bibliotecaria": {
+            "nome": "Bibliotecaria",
+            "fala": "Ora se não é um forasteiro perdido procurando alguns livros.",
+            "status": {
+                "hit points": 15,
+                "pontos de ataque": 5,
+                "pontos de defesa": 4
+                }
+            }
+        },
+        {"fumante": {
+            "nome": "Fumante",
+            "fala": "Cof... Cof... Se você veio pedir um trago, pode ir se preparando pra levar um pé na bunda",
+            "status": {
+                "hit points": 5,
+                "pontos de ataque": 10,
+                "pontos de defesa": 1
+                }
+            }
+        },
+        {"professor 1": {
+            "nome": "Daniel Guzzo",
+            "fala": "Você veio ao FAB LAB, pois bem QUERO UM PROTÓTIPO!",
+            "status": {
+                "hit points": 50,
+                "pontos de ataque": 20,
+                "pontos de defesa": 10
+                }
+            }
+        },
+        {"professor 2": {
+            "nome": "Paulina",
+            "fala": "Iterar e Graficar...",
+            "status": {
+                "hit points": 65,
+                "pontos de ataque": 15,
+                "pontos de defesa": 20
+                }
+            }
+        }
+    ]
+    return monstros
 
+def carregar_atributos(atributos):
+    return atributos
+    
+def luta(i):
+    monstros= carregar_monstros()
+    
+    while monstros[i]["status"]["hit points"]>0:
+        monstros[i]["status"]["hit points"]-= carregar_atributos(atributos_jogador)["pontos de ataque"]
+    return "Voce matou o monstro"
 
 def carregar_cenarios():
     with open("Dicionario_Cenarios_EP1.json",'r') as cenario:
@@ -47,7 +110,7 @@ def carregar_inventário():
 
 def carregar_combate_e_monstros():
     monstros = [ 
-        {"veterano": {
+        {
             "nome": "Veterano",
             "fala": "Hahahaha, eu cursei anoooos de INSPER, acha mesmo que pode me derrotar?????",
             "status": {
@@ -55,8 +118,8 @@ def carregar_combate_e_monstros():
                 "pontos de ataque": 4,
                 "pontos de defesa": 2
                 }
-            }
-        },
+            },
+        
         {"bibliotecaria": {
             "nome": "Bibliotecaria",
             "fala": "Ora se não é um forasteiro perdido procurando alguns livros.",
@@ -101,9 +164,9 @@ def carregar_combate_e_monstros():
     combate = {
         "luta 0": {
                 "titulo": "Parece que uma luta lhe espera!",
-                "nome": monstros[0]["veterano"]["nome"],
-                "fala": monstros[0]["veterano"]["fala"],
-                "status_monstro": monstros[0]["veterano"]["status"],
+                "nome": monstros[0]["nome"],
+                "fala": monstros[0]["fala"],
+                "status_monstro": monstros[0]["status"],
                 "opcoes": "lutar ou fugir? "
         },
         "luta 1": {
@@ -152,14 +215,19 @@ for a in combate:
 '''
 '''
 '''
-
-def main():
-    jogador = input("Diga seu nome aventureiro: ")
-    atributos_jogador = {
+atributos_jogador = {
         "hit points": 100,
         "pontos de ataque": 12,
         "pontos de defesa": 7
     }
+<<<<<<< HEAD
+=======
+
+def main():
+    jogador = input("Diga seu nome aventureiro: ")
+    
+    inventário_itens = []
+>>>>>>> a4049f668910d8dd8c27c52efb2353047ab3866e
     print()
     print("Ola {0}, voce tem 100 de vida e uma adaga em seu inventario".format(jogador))
     print()
@@ -208,13 +276,19 @@ def main():
                 print("{0}: {1}".format(k,v))
             escolha = input("O que você quer fazer? ")
             print()
+<<<<<<< HEAD
+=======
+            
+            cenario_anterior= nome_cenario_atual
+            nome_cenario_atual=escolha
+>>>>>>> a4049f668910d8dd8c27c52efb2353047ab3866e
             
             if escolha not in opcoes:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
                 
 
-            while contador_biblioteca==0:
+            if contador_biblioteca==0:
                 if escolha in opcoes and escolha == "biblioteca":
                      
                     print(combate["luta 0"]["titulo"])
@@ -222,17 +296,16 @@ def main():
                     print(combate["luta 0"]["nome"])
                     print()
                     print(combate["luta 0"]["fala"])
-                    print("Veterano : ",monstros[0]["veterano"]["status"])
+                    print("Veterano : ",monstros[0]["status"])
                     print(jogador, ":", atributos_jogador)
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
-                        print(jogador, "atacou e causou {0} de dano!".format(atributos_jogador["pontos de ataque"]))
-                        monstros[0]["veterano"]["status"]["hit points"] += monstros[0]["veterano"]["status"]["pontos de defesa"]
-                        print("A vida de Veterano é: {0}".format(monstros[0]["veterano"]["status"]["hit points"]))
-                        print()
+                        print(luta(0))
+                        
+                        
                         contador_biblioteca+=1  
                     elif choice == "fugir":
-                        nome_cenario_atual=cenario_anterior
+                        nome_cenario_atual= "inicio"
                         print()
                         print("voce voltou para o cenario anterior")
                         print()
@@ -248,7 +321,7 @@ def main():
         sys.stdout.write(l)
         sys.stdout.flush()
         time.sleep(0.2)
-print("oi")
+
                 
 '''
                 cenario_anterior= nome_cenario_atual
