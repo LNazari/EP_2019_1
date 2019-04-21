@@ -9,6 +9,7 @@ fumódromo
 biblioteca
 aquário
 andar professor
+sala marcos lisboa
 saguao - prédio 2
 fab lab
 andar 2 - tobogã - prédio 2
@@ -17,8 +18,16 @@ auditório
 labs ?
 andar 5 - sala entidades - predio 1
 andar secreto - predio 1
-andar 3 - salas de aula
 
+adaga 
+machado
+espada feita em python
+
+itens para matar o andrew:
+espada em python
+livro do python
+
+c
 
 inventário:(itens)
 carteirinha - serve para passar pelo saguao do prédio 1 e saguão prédio 2

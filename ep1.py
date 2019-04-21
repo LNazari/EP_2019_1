@@ -56,7 +56,7 @@ def carregar_monstros():
             "status": {
                 "hit points": 15,
                 "pontos de ataque": 5,
-                "pontos de defesa": 4
+                "pontos de defesa": 4,
                 }
             },
         {
@@ -102,14 +102,14 @@ def carregar_combate():
     monstros = carregar_monstros()
     combate = {
         "luta 0": {
-                "titulo": "Parece que uma luta lhe espera!",
+                "titulo": "Parece que uma luta lhe espera! E alguém lhe impede de prosseguir:",
                 "nome": monstros[0]["nome"],
                 "fala": monstros[0]["fala"],
                 "status_monstro": monstros[0]["status"],
                 "opcoes": "lutar ou fugir? "
         },
         "luta 1": {
-                "titulo": "Parece que uma luta lhe espera!",
+                "titulo": "Parece que uma luta lhe espera! E alguém lhe impede de prosseguir:",
                 "nome": monstros[1]["nome"],
                 "fala": monstros[1]["fala"],
                 "status_monstro": monstros[1]["status"],
@@ -117,7 +117,7 @@ def carregar_combate():
             
         },
         "luta 2": {
-                "titulo": "Parece que uma luta lhe espera!",
+                "titulo": "Parece que uma luta lhe espera! E alguém lhe impede de prosseguir:",
                 "nome": monstros[2]["nome"],
                 "fala": monstros[2]["fala"],
                 "status_monstro": monstros[2]["status"],
@@ -125,7 +125,7 @@ def carregar_combate():
             
         },
         "luta 3": {
-                "titulo": "Parece que uma luta lhe espera!",
+                "titulo": "Parece que uma luta lhe espera! E alguém lhe impede de prosseguir:",
                 "nome": monstros[3]["nome"],
                 "fala": monstros[3]["fala"],
                 "status_monstro": monstros[3]["status"],
@@ -133,7 +133,7 @@ def carregar_combate():
             
         },
         "luta 4": {
-                "titulo": "Parece que uma luta lhe espera!",
+                "titulo": "Parece que uma luta lhe espera! E alguém lhe impede de prosseguir:",
                 "nome": monstros[4]["nome"],
                 "fala": monstros[4]["fala"],
                 "status_monstro": monstros[4]["status"],

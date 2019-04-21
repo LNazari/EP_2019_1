@@ -1,70 +1,151 @@
-{       "inicio": {
-            "titulo": "Saguao do perigo",
-            "descricao": "Voce esta no saguao de entrada do insper",
-            "opcoes": {
-                "andar professor": "Tomar o elevador para o andar do professor",
-                "biblioteca": "Ir para a biblioteca"
-            }
-        },
-        "andar professor": {
-            "titulo": "Andar do desespero",
-            "descricao": "Voce chegou ao andar da sala do seu professor",
-            "opcoes": {
-                "inicio": "Tomar o elevador para o saguao de entrada",
-                "professor": "Falar com o professor"
-            }
-        },
-        "professor": {
-            "titulo": "O monstro do Python",
-            "descricao": "Voce foi pedir para o professor adiar o EP. \n O professor revelou que é um monstro disfarçado \n e devorou sua alma.",
-            "opcoes": {}
-        },
-        "biblioteca": {
-            "titulo": "Caverna da tranquilidade",
-            "descricao": "Voce esta na biblioteca",
-            "opcoes": {
-                "inicio": "Voltar para o saguao de entrada",
-                "sala secreta": "Ir para a sala secreta",
-                "aquarios": "Ir para os aquarios"
-            }
-        },
-        "aquarios": {
-            "titulo": "Peixes submersos nos estudos",
-            "descricao": "Local de estudo que nunca tem sala sobrando",
-            "opcoes":{
-                "biblioteca": "Voltar a biblioteca"         
-            }    
-        }, 
-        "teletransporte":{
-            "titulo": "toboga multidimensional",
-            "descricao": "voce pode ir para qualquer sala do jogo",
-            "opcoes":{
-                "inicio": "Voltar para o saguao de entrada"           
-            }
-        
-        },      
-        "sala secreta": {
-            "titulo": "Corredor da sala secreta",
-            "descricao": "Voce esta na porta da sala secreta",
-            "opcoes": {
-                "entrar": "Entrar na sala",
-                "biblioteca": "Voltar a biblioteca"
-            }
-        },
-        
-        "entrar": {
-            "titulo": "Esconderijo dos migues",
-            "descricao": "Voce esta no esconderijo onde os alunos fogem das aulas",
-            "opcoes": {
-                "teletransporte": "ir para o teletransporte",
-                "sala secreta": "voltar para o corredor"
-            }
-        }                   
-            
+{
+    "inicio": {
+        "titulo": "Saguão do perigo",
+        "descricao": "Você está no saguão de entrada do Insper",
+        "opcoes": {
+            "andar professor": "Tomar o elevador para o andar do professor",
+            "biblioteca": "Ir para a biblioteca"
+        }
+    },
+
+    "andar professor": {
+        "titulo": "Andar do desespero",
+        "descricao": "Voce chegou ao andar da sala do seu professor",
+        "opcoes": {
+            "inicio": "Tomar o elevador para o saguao de entrada",
+            "professor": "Falar com o professor"
+        }
+    },
+
+    "professor": {
+        "titulo": "O monstro do Python",
+        "descricao": "Voce foi pedir para o professor adiar o EP. \n O professor revelou que é um monstro disfarçado \n e devorou sua alma.",
+        "opcoes": {}
+    },
+
+    "biblioteca": {
+        "titulo": "Caverna da tranquilidade",
+        "descricao": "Voce está na biblioteca",
+        "opcoes": {
+            "inicio": "Voltar para o saguão de entrada",
+            "sala secreta": "Ir para a sala secreta",
+            "aquarios": "Ir para os aquarios"
+        }
+    },
+
+    "aquarios": {
+        "titulo": "Peixes submersos nos estudos",
+        "descricao": "Local de estudo que nunca tem salas sobrando",
+        "opcoes":{
+            "biblioteca": "Voltar a biblioteca"         
+        }    
+    },    
+
+    "sala secreta": {
+        "titulo": "Corredor da sala secreta",
+        "descricao": "Voce esta na porta da sala secreta",
+        "opcoes": {
+            "entrar": "Entrar na sala",
+            "biblioteca": "Voltar a biblioteca"
+        }
+    },                   
+
+    "fumodromo": {
+        "titulo": "Smoke In The Water...",
+        "descricao": "Lar dos fumantes e matadores de aula",
+        "opcoes": {
+            "inicio": "Voltar para o saguão de entrada do PRÉDIO 1",
+            "predio 2": "Ir para o saguão de entrada do PRÉDIO 2"
+        }
+    },
+
+    "predio 2": {
+        "titulo": "Catracas malditas!",
+        "descricao": "Você está no saguão de entrada do prédio 2 do Insper",
+        "opcoes": {
+            "andar 2": "Tomar o elevador para o segundo andar",
+            "fablab": "Subir até o Fab Lab",
+            "fumodromo": "Voltar para o fumodrómo"
+        }
+    },
+
+    "andar 2": {
+        "titulo": "Andar misterioso",
+        "descricao": "Você está no 2°andar, aqui somente ocorrem eventos herméticos",
+        "opcoes": {
+            "objeto": "Análisar objeto suspeito à frente",
+            "fablab": "Subir para o Fab Lab",
+            "predio 2": "Voltar pro saguão de entrada do prédio 2"
+        }
+    },
+    
+    "objeto": {
+        "titulo": "Tobogã Dimensional",
+        "descricao": "No lugar do objeto suspeito havia um pano, você o remove e descobre uma grande entrada: é uma porta dimensional que concede acesso levar para te levar qualquer lugar, com uma condição: dizer o nome do local",
+        "opcoes": "digite o nome do lugar que deseja ir"
+    },
+
+    "fablab": {
+        "titulo": "Laboratório do Doutor Estranho",
+        "descricao": "Aqui se encontra um local de fabricações profissionais, tome cuidado!",
+        "opcoes": {
+            "bau": "Interagir com bau estranho",
+            "2 andar": "Tomar elevador para o 2°andar",
+            "predio 2": "Voltar para o saguão de entrada do prédio 2"
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+    
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
     }   
                 
             
-     
+        
     
         
         
