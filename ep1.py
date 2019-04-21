@@ -37,11 +37,6 @@ def carregar_cenarios():
     nome_cenario_atual = "inicio"
     return cenarios, nome_cenario_atual
 
-def carregar_monstros():
-    with open("Arquivo_Monstros_EP!", "r") as monstros:
-        conteudo_monstros = monstros.read()
-    return conteudo_monstros
-
 
 def carregar_inventário():
     with open('Dicionario_Inventario_EP1.json','r') as items:
@@ -50,11 +45,102 @@ def carregar_inventário():
     return inventario
 
 
-def carregar_combate():
-    with open('Dicionario_Combate_EP1.json','r') as combate:
-        conteudo_combate = combate.read()
-    combate = json.loads(conteudo_combate)
-    return combate
+def carregar_combate_e_monstros():
+    monstros = [ 
+        {"veterano": {
+            "nome": "Veterano",
+            "fala": "Hahahaha, eu cursei anoooos de INSPER, acha mesmo que pode me derrotar?????",
+            "status": {
+                "hit points": 10,
+                "pontos de ataque": 4,
+                "pontos de defesa": 2
+                }
+            }
+        },
+        {"bibliotecaria": {
+            "nome": "Bibliotecaria",
+            "fala": "Ora se não é um forasteiro perdido procurando alguns livros.",
+            "status": {
+                "hit points": 15,
+                "pontos de ataque": 5,
+                "pontos de defesa": 4
+                }
+            }
+        },
+        {"fumante": {
+            "nome": "Fumante",
+            "fala": "Cof... Cof... Se você veio pedir um trago, pode ir se preparando pra levar um pé na bunda",
+            "status": {
+                "hit points": 5,
+                "pontos de ataque": 10,
+                "pontos de defesa": 1
+                }
+            }
+        },
+        {"professor 1": {
+            "nome": "Daniel Guzzo",
+            "fala": "Você veio ao FAB LAB, pois bem QUERO UM PROTÓTIPO!",
+            "status": {
+                "hit points": 50,
+                "pontos de ataque": 20,
+                "pontos de defesa": 10
+                }
+            }
+        },
+        {"professor 2": {
+            "nome": "Paulina",
+            "fala": "Iterar e Graficar...",
+            "status": {
+                "hit points": 65,
+                "pontos de ataque": 15,
+                "pontos de defesa": 20
+                }
+            }
+        }
+    ]
+    combate = {
+        "luta 0": {
+                "titulo": "Parece que uma luta lhe espera!",
+                "nome": monstros[0]["veterano"]["nome"],
+                "fala": monstros[0]["veterano"]["fala"],
+                "status_monstro": monstros[0]["veterano"]["status"],
+                "opcoes": "lutar ou fugir? "
+        },
+        "luta 1": {
+                "titulo": "Parece que uma luta lhe espera!",
+                "nome": monstros[1]["bibliotecaria"]["nome"],
+                "fala": monstros[1]["bibliotecaria"]["fala"],
+                "status_monstro": monstros[1]["bibliotecaria"]["status"],
+                "opcoes": "lutar ou fugir? "
+            
+        },
+        "luta 2": {
+                "titulo": "Parece que uma luta lhe espera!",
+                "nome": monstros[2]["fumante"]["nome"],
+                "fala": monstros[2]["fumante"]["fala"],
+                "status_monstro": monstros[2]["fumante"]["status"],
+                "opcoes": "lutar ou fugir? "
+            
+        },
+        "luta 3": {
+                "titulo": "Parece que uma luta lhe espera!",
+                "nome": monstros[3]["professor 1"]["nome"],
+                "fala": monstros[3]["professor 1"]["fala"],
+                "status_monstro": monstros[3]["professor 1"]["status"],
+                "opcoes": "lutar ou fugir? "
+            
+        },
+        "luta 4": {
+                "titulo": "Parece que uma luta lhe espera!",
+                "nome": monstros[4]["professor 2"]["nome"],
+                "fala": monstros[4]["professor 2"]["fala"],
+                "status_monstro": monstros[4]["professor 2"]["status"],
+                "opcoes": "lutar ou fugir? " 
+            
+            
+        }
+    }
+    return combate, monstros
 
 '''
 combate = carregar_combate()
@@ -68,7 +154,6 @@ for a in combate:
 def main():
     jogador = input("Diga seu nome aventureiro: ")
     atributos_jogador = {
-        "nome": jogador,
         "hit points": 100,
         "pontos de ataque": 12,
         "pontos de defesa": 7
@@ -92,6 +177,8 @@ def main():
     print()
 
     cenarios, nome_cenario_atual = carregar_cenarios()
+    combate, monstros = carregar_combate_e_monstros()
+    
 
     game_over = False
     while not game_over:
@@ -122,7 +209,28 @@ def main():
             escolha = input("O que você quer fazer? ")
             print()
 
-            if escolha in opcoes:
+            if escolha in opcoes and escolha == "biblioteca":
+                    print(combate["luta 0"]["titulo"])
+                    print()
+                    print(combate["luta 0"]["nome"])
+                    print()
+                    print(combate["luta 0"]["fala"])
+                    print(combate["luta 0"]["nome"],":", combate["luta 0"]["status_monstro"])
+                    print(jogador, ":", atributos_jogador)
+                    choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
+                    if choice == "lutar":
+                        print(jogador, "atacou e causou {0} de dano!".format(atributos_jogador["pontos de ataque"]))
+                        monstros[0]["veterano"]["status"]["hit points"] += monstros[0]["veterano"]["status"]["pontos de defesa"]
+                        print(monstros[0]["veterano"]["status"]["hit points"]) 
+                        monstros[0]["veterano"]["status"]["hit points"] -= atributos_jogador["pontos de ataque"]
+                        print(monstros[0]["veterano"]["status"]["hit points"])
+                        print("A vida de Veterano é: {0}".format(monstros[0]["veterano"]["status"]["hit points"]))
+
+
+                    
+
+                
+'''
                 cenario_anterior= nome_cenario_atual
                 nome_cenario_atual = escolha
 
@@ -170,12 +278,14 @@ def main():
                                 print()
                                 print("agora voce pode seguir seu caminho")
                                 print()
-                            
+                else:
+                    nome_cenario_atual = escolha
+                            '''
                             
                    
 
-                    
-            else:
+'''      
+           else:
                 print("Sua indecisão foi sua ruína!")
                 game_over = True
 
@@ -184,7 +294,7 @@ def main():
         sys.stdout.write(l)
         sys.stdout.flush()
         time.sleep(0.2)
-
+'''
 
 
 # Programa principal.

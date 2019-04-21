@@ -4,7 +4,7 @@
     "nome": monstros[0]["nome"],
     "fala": monstros[0]["fala"],
     "status_monstro": monstros[0]["status"]
-    "opcoes": {
+    "opcoes": "lutar ou fugir? "
 
     },
 "luta 1": {
