@@ -46,13 +46,6 @@ def carregar_inventário():
 
 
 def carregar_combate_e_monstros():
-<<<<<<< HEAD
-    with open("Dicionario_Combate_e_Monstros_EP1.json",'r') as combates_e_monstros:
-        conteudo_combate_e_monstros = combates_e_monstros.read()
-    lutas= json.loads(conteudo_combate_e_monstros)
-    return lutas
-    
-=======
     monstros = [ 
         {"veterano": {
             "nome": "Veterano",
@@ -150,7 +143,7 @@ def carregar_combate_e_monstros():
     return combate, monstros
 '''
 '''
->>>>>>> 43626cd253dc4900e1598551232a21667dfc6a40
+
 '''
 combate = carregar_combate()
 for a in combate:
@@ -218,8 +211,9 @@ def main():
             escolha = input("O que você quer fazer? ")
             print()
 
-            if escolha in opcoes and escolha == "biblioteca":
-                        
+            while contador_biblioteca==0:
+                if escolha in opcoes and escolha == "biblioteca":
+                     
                     print(combate["luta 0"]["titulo"])
                     print()
                     print(combate["luta 0"]["nome"])
@@ -232,12 +226,17 @@ def main():
                         print(jogador, "atacou e causou {0} de dano!".format(atributos_jogador["pontos de ataque"]))
                         monstros[0]["veterano"]["status"]["hit points"] += monstros[0]["veterano"]["status"]["pontos de defesa"]
                         print("A vida de Veterano é: {0}".format(monstros[0]["veterano"]["status"]["hit points"]))
-
+                        contador_biblioteca+=1  
                     elif choice == "fugir":
                         nome_cenario_atual=cenario_anterior
                         print()
                         print("voce voltou para o cenario anterior")
                         print("/n")
+                    else:
+                        print("Sua indecisão foi sua ruína!")
+                        game_over = True
+                    
+            
 
                 
 '''
