@@ -185,7 +185,7 @@ def main():
     game_over = False
     while not game_over:
         
-        cenario_anterior= nome_cenario_atual
+        
         bibliotecaria=45
         i=0
         ataque_jogador=20
@@ -211,6 +211,8 @@ def main():
                 print("{0}: {1}".format(k,v))
             escolha = input("O que você quer fazer? ")
             print()
+            cenario_anterior= nome_cenario_atual
+            nome_cenario_atual=escolha
             
             if escolha not in opcoes:
                 print("Sua indecisão foi sua ruína!")
@@ -237,7 +239,7 @@ def main():
                         nome_cenario_atual=cenario_anterior
                         print()
                         print("voce voltou para o cenario anterior")
-                        print("/n")
+                        print()
                     else:
                         print("Sua indecisão foi sua ruína!")
                         game_over = True
