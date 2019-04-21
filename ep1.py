@@ -203,6 +203,7 @@ def main():
         if len(opcoes) == 0:
             print("Acabaram-se suas opções! Mwo mwo mwooooo...")
             game_over = True
+        
         else:
             print("Escolha sua opção:")
             print()
@@ -210,6 +211,11 @@ def main():
                 print("{0}: {1}".format(k,v))
             escolha = input("O que você quer fazer? ")
             print()
+            
+            if escolha not in opcoes:
+                print("Sua indecisão foi sua ruína!")
+                game_over = True
+                
 
             while contador_biblioteca==0:
                 if escolha in opcoes and escolha == "biblioteca":
