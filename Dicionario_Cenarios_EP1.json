@@ -15,13 +15,31 @@
         "opcoes": {
             "inicio": "Tomar o elevador para o saguao de entrada",
             "sauna dos professores": "Ir ao local de relaxamento dos professores",
+            "copa": "Ir para a copa auto-servico dos professores",
             "professor": "Falar com o professor"
+        }
+    },
+
+    "sauna professores": {
+        "titulo": "Repouso dos professores",
+        "descricao": "A sauna dos professores e o local de relaxamento dos professores \n E nao e permitida a entrada de NENHUM aluno \n SAIA IMEDIATAMENTE!",
+        "opcoes": {
+           "andar professor": "Retornar ao corredor do andar dos professores"
+        }
+    },
+
+    "copa": {
+        "titulo": "Reposicao de energia",
+        "descricao": "A cantina e o local onde os alunos repoe as energias após muito estudo (ou nao)",
+        "opcoes": {
+            "item": "Recuperar item perdido em cima da mesa",
+            "andar professor": "Retornar ao corredor do andar dos professores"    
         }
     },
 
     "professor": {
         "titulo": "O monstro do Python",
-        "descricao": "Voce foi pedir para o professor adiar o EP. \n O professor revelou que é um monstro disfarçado \n e devorou sua alma.",
+        "descricao": "Voce foi pedir para o professor adiar o EP. \n O professor revelou que e um monstro disfarcado \n e devorou sua alma.",
         "opcoes": {}
     },
 
@@ -44,22 +62,13 @@
     },    
 
     "sala secreta": {
-        "titulo": "O segredo atras da porta",
-        "descricao": "Voce encontrou uma sala secreta",
+        "titulo": "A Sala mais que Secreta",
+        "descricao": "Parabens voce conseguiu abrir a porta da sala secreta, como recompensa aqui tem um item especial aqui esperando por voce!\n Esse item e um dos itens necessarios para derrotar o\n ... ",
         "opcoes": {
-            "entrar": "Entrar na sala",
+            "livro python": "Pegar o livro 'Introdução à programação com Python: algoritmos e lógica de programação para iniciantes por Nilo Ney Coutinho Menezes'",
             "biblioteca": "Voltar a biblioteca"
         }
-    },   
-    
-    "entrar": {
-        "titulo": "Sala misteriosamente misteriosa",
-        "descricao": "Voce conseguiu entrar dentro da sala secreta, e olha tem um item especial aqui esperando por voce!",
-        "opcoes": {
-            "item": "Pegar item",
-            "biblioteca": "Voltar a biblioteca"
-        }
-    },   
+    },     
                     
    "fumodromo": {
         "titulo": "Smoke In The Water...",
@@ -75,6 +84,7 @@
         "descricao": "Voce esta no saguao de entrada do predio 2 do Insper",
         "opcoes": {
             "andar 2": "Tomar o elevador para o segundo andar",
+            "fablab": "Tomar o elevador para o andar do Fab Lab",
             "fumodromo": "Voltar para o fumodromo"
         }
     },
@@ -84,15 +94,19 @@
         "descricao": "Voce esta no segundo, aqui somente ocorrem eventos hermeticos",
         "opcoes": {
             "objeto": "Analisar objeto suspeito a frente",
-            "fablab": "Subir para o Fab Lab",
+            "fablab": "Subir as escadas para o Fab Lab",
             "predio 2": "Voltar pro saguao de entrada do predio 2"
         }
     },
     
     "objeto": {
         "titulo": "Toboga Dimensional",
-        "descricao": "No lugar do objeto suspeito havia um pano, você o remove e descobre uma grande entrada:\n e uma porta dimensional que concede acesso levar para te levar qualquer lugar,\n com uma condição: dizer o nome do local",
-        "opcoes": "digite o nome do lugar que deseja ir"
+        "descricao": "No lugar do objeto suspeito havia um pano, você o remove e descobre uma grande entrada:\n E uma porta dimensional que concede acesso para te levar qualquer lugar, com uma condição:\n Basta ter o 'mapa' em seu inventario e dizer o nome em que deseja ir\n ",
+        "opcoes": {
+            "dizer": "Dizer o nome da sala em que deseja ir",
+            "portal 1": "Teletransportar para sala do Marcos Lisboa",
+            "portal 2": "Teletransportar para a sala do ... (CUIDADO! Esta opcao e perigosa demais e voce nao tera como voltar dela depois que selecionar, pense bem antes de entrar!)"
+        }
     },
 
     "fablab": {
@@ -100,35 +114,22 @@
         "descricao": "Aqui se encontra um local de fabricações profissionais, tome cuidado!",
         "opcoes": {
             "bau": "Interagir com bau estranho",
-            "2 andar": "Tomar elevador para o segundo andar",
+            "2 andar": "Descer as escadas para o segundo andar",
             "predio 2": "Voltar para o saguão de entrada do predio 2"
         }
     },
 
-    "sauna dos professores": {
-        "titulo": "Repouso dos professores",
-        "descricao": "A sauna dos professores e o local onde eles repousam \n e nao convidam nenhum aluno.",
+    "bau": {
+        "titulo": "Bau Lendario",
+        "descricao": "Parabens voce conseguiu chegar ate o Bau Lendario, aqui há 3 itens como recompensa,\n Um deles e 'espada' feita em python, a espada mais forte do jogo e um dos itens necessários para derrotar o \n ...",
         "opcoes": {
-               "andar professor": "Retornar ao corredor do andar dos professores",
-               "cantina": "Ir para a cantina",
-               "sala das entidades": "Ir para a sala de entidades"
-            }
-        },
-    "cantina": {
-        "titulo": "Reposicao de energia",
-        "descricao": "A cantina e o local onde os alunos repoe as energias após muito estudo (ou nao)",
-        "opcoes": {
-                "sauna dos professores": "Retornar para a sauna dos professores",
-                "professor": "Encontrar o tao esperado chefe final"    
-            }
-        },
-    "sala das entidades": {
-        "titulo": "reuniao das entidades",
-        "descricao": "local onde ocorre a reuniao dos membros das entidades",
-        "opcoes": {
-            "sauna dos professores": "Retornar para se banhar na sauna dos professores"    
-            }
+            "escudo": "Pegar o escudo e guardar em seu inventario",
+            "pocao de vida": "Pegar a pocao de vida e guardar em seu inventario",
+            "espada lendaria": "Pegar a 'espada' feita em python",
+            "fablab": "Retornar para a entrada do FAB LAB"
         }
+    }
+    
 }
 
 

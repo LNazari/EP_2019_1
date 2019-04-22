@@ -30,13 +30,6 @@ inventario_jogador = ["carteirinha do insper"]
 #poção de vida = restore 100 hit points
 
 
-if "adaga" in inventario_jogador:
-    ataque_jogador += 10
-
-if "escudo" in inventario_jogador:
-    defesa_jogador += 10
-
-
 #Funções:
 
 def carregar_cenarios():
@@ -72,7 +65,7 @@ def carregar_monstros():
             },
         {
             "nome": "Fumante",
-            "fala": "Cof... Cof... Se você veio pedir um trago, pode ir se preparando pra levar um pé na bunda",
+            "fala": "Cof... Cof... Se você veio pedir um trago, pode ir se preparando pra levar um pe na bunda",
             "premio": "poção de vida",
             "status": {
                 "hit points": 5,
@@ -150,7 +143,20 @@ def carregar_combate():
     return combate
 
 
-def carregar_atributos(atributos):
+def carregar_atributos(atributos, inventario):
+    atributos_jogador = atributos
+    ataque_jogador = atributos_jogador["pontos de ataque"]
+    defesa_jogador = atributos_jogador["pontos de defesa"]
+
+    inventario_jogador = inventario
+
+    if "adaga" in inventario_jogador:
+        ataque_jogador += 10
+
+    if "escudo" in inventario_jogador:
+        defesa_jogador += 10
+
+
     return atributos
 
 
@@ -158,8 +164,8 @@ def luta(i):
     monstros= carregar_monstros()
     defesa_monstros = monstros[i]["status"]["pontos de defesa"] 
     vida_monstros = monstros[i]["status"]["hit points"] + defesa_monstros
-    vida_jogador = carregar_atributos(atributos_jogador)["hit points"] + carregar_atributos(atributos_jogador)["pontos de defesa"]
-    ataque_jogador = carregar_atributos(atributos_jogador)["pontos de ataque"]
+    vida_jogador = carregar_atributos(atributos_jogador, inventario_jogador)["hit points"] + carregar_atributos(atributos_jogador, inventario_jogador)["pontos de defesa"]
+    ataque_jogador = carregar_atributos(atributos_jogador, inventario_jogador)["pontos de ataque"]
     ataque_monstro = monstros[i]["status"]["pontos de ataque"]
 
     contador_da_vez= randint(1,2)
@@ -198,7 +204,7 @@ def luta(i):
 def main():
     jogador = input("Diga seu nome aventureiro: ")
     print()
-    print("Olá {0}, seus atributos são {1} e você começa com sua carteirinha do Insper em seu inventário".format(jogador, carregar_atributos(atributos_jogador)))
+    print("Olá {0}, seus atributos são {1} e você começa com sua carteirinha do Insper em seu inventário".format(jogador, carregar_atributos(atributos_jogador, inventario_jogador)))
     print()
     pronto= input("voce esta pronto?: ")
     print("Vamos comecar")
@@ -223,9 +229,6 @@ def main():
     contador_fumodromo=0
     contador_fablab=0
     contador_objeto=0
-    vida_jogador = atributos_jogador["hit points"]
-    ataque_jogador = atributos_jogador["pontos de ataque"]
-    defesa_jogador = atributos_jogador["pontos de defesa"]
 
     game_over = False
     while not game_over:
@@ -273,7 +276,7 @@ def main():
                     print()
                     print(combate["luta 0"]["fala"])
                     print(combate["luta 0"]["nome"], ":", combate["luta 0"]["status_monstro"])
-                    print(jogador, ":", atributos_jogador)
+                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
                     choice = input("O que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
                         print(luta(0))
@@ -281,8 +284,6 @@ def main():
                         print("Parece que esse monstro deixou um prêmio para você:", monstros[0]["premio"])
                         print("Este item adiciona 10 pontos de ataque ao seu avatar")
                         inventario_jogador.append(monstros[0]["premio"])
-                        if "adaga" in inventario_jogador:
-                            ataque_jogador += 10
                         contador_biblioteca+=1  
                     elif choice == "fugir":
                         nome_cenario_atual = cenario_anterior
@@ -300,13 +301,14 @@ def main():
                     print()
                     print(combate["luta 1"]["fala"])
                     print(combate["luta 1"]["nome"], ":", combate["luta 1"]["status_monstro"])
-                    print(jogador, ":", atributos_jogador)
+                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
                         print(luta(1))
                         print()
                         print("Parece que esse monstro deixou um prêmio para você:", monstros[1]["premio"])
-                        print("Este item lhe permite acesso à sala secreta")                       
+                        print("Este item lhe permite acesso à sala secreta")
+                        inventario_jogador.append(monstros[1]["premio"])                       
                         contador_aquarios+=1  
                     elif choice == "fugir":
                         nome_cenario_atual = cenario_anterior
@@ -324,13 +326,14 @@ def main():
                     print()
                     print(combate["luta 2"]["fala"])
                     print(combate["luta 2"]["nome"], ":", combate["luta 2"]["status_monstro"])
-                    print(jogador, ":", atributos_jogador)
+                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
                         print(luta(2))
                         print()
                         print("Parece que esse monstro deixou um prêmio para você:", monstros[2]["premio"])
-                        print("Este item recupera sua vida em 100 hit points")                       
+                        print("Este item recupera sua vida em 100 hit points")
+                        inventario_jogador.append(monstros[2]["premio"])                       
                         contador_fumodromo+=1  
                     elif choice == "fugir":
                         nome_cenario_atual = cenario_anterior
@@ -348,13 +351,14 @@ def main():
                     print()
                     print(combate["luta 3"]["fala"])
                     print(combate["luta 3"]["nome"], ":", combate["luta 3"]["status_monstro"])
-                    print(jogador, ":", atributos_jogador)
+                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
                         print(luta(3))
                         print()
                         print("Parece que esse monstro deixou um prêmio para você:", monstros[3]["premio"])
-                        print("Este item permite você ter acesso ao toboga multidimensional")                      
+                        print("Este item permite você ter acesso ao toboga multidimensional")
+                        inventario_jogador.append(monstros[3]["premio"])                      
                         contador_fablab+=1  
                     elif choice == "fugir":
                         nome_cenario_atual = cenario_anterior
@@ -363,8 +367,7 @@ def main():
                         print()
                     else:
                         print("Sua indecisão foi sua ruína!")
-                        game_over = True
-                        
+                        game_over = True              
                 elif escolha == "objeto" and contador_objeto==0:
                     print(combate["luta 4"]["titulo"])
                     print()
@@ -372,13 +375,14 @@ def main():
                     print()
                     print(combate["luta 4"]["fala"])
                     print(combate["luta 4"]["nome"], ":", combate["luta 4"]["status_monstro"])
-                    print(jogador, ":", atributos_jogador)
+                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
                         print(luta(4))
                         print()
                         print("Parece que esse monstro deixou um prêmio para você:", monstros[4]["premio"])
-                        print("Este item permite você ter acesso para usar o toboga multidimensional para todos lugares")                       
+                        print("Este item permite você ter acesso para usar o toboga multidimensional para todos lugares")
+                        inventario_jogador.append(monstros[0]["premio"])                       
                         contador_objeto+=1  
                     elif choice == "fugir":
                         nome_cenario_atual = cenario_anterior
