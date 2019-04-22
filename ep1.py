@@ -145,11 +145,13 @@ def carregar_combate():
 
 def carregar_atributos(atributos, inventario):
     atributos_jogador = atributos
-    
-    inventario_jogador = inventario
 
-    if "adaga" in inventario_jogador:
-        atributos_jogador["pontos de ataque"] += 10
+    inventario_jogador = inventario
+    contador_adaga=0
+    if contador_adaga == 0:
+        if "adaga" in inventario_jogador:
+            atributos_jogador["pontos de ataque"] += 10
+            contador_adaga +=1
 
     if "escudo" in inventario_jogador:
         atributos_jogador["pontos de defesa"] += 10
