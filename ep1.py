@@ -162,12 +162,13 @@ def luta(i):
     monstros= carregar_monstros()
     defesa_monstros = monstros[i]["status"]["pontos de defesa"] 
     vida_monstros = monstros[i]["status"]["hit points"] + defesa_monstros
+    vida_jogador = carregar_atributos(atributos_jogador)["hit points"] + carregar_atributos(atributos_jogador)["pontos de defesa"]
     ataque_jogador = carregar_atributos(atributos_jogador)["pontos de ataque"]
     ataque_monstro = monstros[i]["status"]["pontos de ataque"]
 
     contador_da_vez= randint(1,2)
     
-    while vida_monstros >0 and atributos_jogador["hit points"]>0:
+    while vida_monstros >0 and vida_jogador>0:
         if contador_da_vez%2 == 0: #vez do jogador
             print("Sua vez de atacar")
             print()
@@ -183,9 +184,9 @@ def luta(i):
             print("É a vez do monstro de atacar")
             print()
             print("O monstro causou {0} de dano".format(ataque_monstro))
-            atributos_jogador["hit points"] -= ataque_monstro
-            if atributos_jogador["hit points"] < 0:
-                atributos_jogador["hit points"] = 0
+            vida_jogador -= ataque_monstro
+            if vida_jogador < 0:
+                vida_jogador = 0
                 print("Voce morreu")
                 game_over = True
             print("Após o ataque do monstro, sua vida ficou: {0}".format(atributos_jogador["hit points"]))
@@ -303,7 +304,10 @@ def main():
                     print(jogador, ":", atributos_jogador)
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
-                        print(luta(1))                       
+                        print(luta(1))
+                        print()
+                        print("Parece que esse monstro deixou um prêmio para você:", monstros[1]["premio"])
+                        print("Este item lhe permite acesso à sala secreta")                       
                         contador_aquarios+=1  
                     elif choice == "fugir":
                         nome_cenario_atual = cenario_anterior
