@@ -27,7 +27,7 @@ defesa_jogador = atributos_jogador["pontos de defesa"]
 inventario_jogador = ["carteirinha do insper"]
 #adaga = 10 atk points
 #escudo = 10 atk points
-#poção de vida = restore 50 hit points
+#poção de vida = restore 100 hit points
 
 
 if "adaga" in inventario_jogador:
@@ -53,6 +53,7 @@ def carregar_monstros():
         {
             "nome": "Bibliotecaria",
             "fala": "Ora ora se não é um forasteiro perdido procurando alguns livros.",
+            "prêmio": "adaga"
             "status": {
                 "hit points": 15,
                 "pontos de ataque": 5,
@@ -62,6 +63,7 @@ def carregar_monstros():
         {
             "nome": "Veterano",
             "fala": "Hahahaha, eu cursei anoooos de INSPER, acha mesmo que pode me derrotar?????",
+            "prêmio": "chave ss"
             "status": {
                 "hit points": 10,
                 "pontos de ataque": 2,
@@ -71,6 +73,7 @@ def carregar_monstros():
         {
             "nome": "Fumante",
             "fala": "Cof... Cof... Se você veio pedir um trago, pode ir se preparando pra levar um pé na bunda",
+            "prêmio": "poção de vida"
             "status": {
                 "hit points": 5,
                 "pontos de ataque": 10,
@@ -80,6 +83,7 @@ def carregar_monstros():
         {
             "nome": "Daniel Guzzo",
             "fala": "Você veio ao FAB LAB, pois bem QUERO UM PROTÓTIPO!",
+            "prêmio": "tapete deslizante"
             "status": {
                 "hit points": 50,
                 "pontos de ataque": 20,
@@ -89,6 +93,7 @@ def carregar_monstros():
         {
             "nome": "Paulina",
             "fala": "Iterar e Graficar...",
+            "prêmio": "mapa"
             "status": {
                 "hit points": 65,
                 "pontos de ataque": 15,
@@ -268,7 +273,7 @@ def main():
                         print(luta(0))                       
                         contador_biblioteca+=1  
                     elif choice == "fugir":
-                        nome_cenario_atual = "inicio"
+                        nome_cenario_atual = cenario_anterior
                         print()
                         print("Você voltou para o cenário anterior")
                         print()
