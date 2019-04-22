@@ -14,7 +14,7 @@
         "descricao": "Voce chegou ao andar da sala do seu professor",
         "opcoes": {
             "inicio": "Tomar o elevador para o saguao de entrada",
-            "professor": "Falar com o professor"
+            "sauna dos professores": "Ir ao local de relaxamento dos professores"
         }
     },
 
@@ -49,23 +49,42 @@
             "entrar": "Entrar na sala",
             "biblioteca": "Voltar a biblioteca"
         }
-    },                   
+    },   
+    
+    "entrar": {
+        "titulo": "Sala misteriosamente misteriosa",
+        "descricao": "Parece que voce encontrou algo misterioso atras de uma estante",
+        "opcoes": {
+            "misterio": "descobrir o que e",
+            "biblioteca": "Voltar a biblioteca"
+        }
+    },   
+    
+    "misterio": {
+        "titulo": "O misterio misterioso",
+        "descricao": "Voce encontrou uma pocao de vida, sua vida foi recuperada aos 100 pontos",
+        "opcoes": {
+            "entrar": "voltar a sala secreta"
+            
+        }
+    },   
+    
+                    
 
     "fumodromo": {
         "titulo": "Smoke In The Water...",
         "descricao": "Lar dos fumantes e matadores de aula",
         "opcoes": {
-            "inicio": "Voltar para o saguão de entrada do PRÉDIO 1",
-            "predio 2": "Ir para o saguão de entrada do PRÉDIO 2"
+            "inicio": "Voltar para o saguão de entrada do predio 1",
+            "predio 2": "Ir para o saguao de entrada do predio 2"
         }
     },
 
     "predio 2": {
         "titulo": "Catracas malditas!",
-        "descricao": "Você está no saguão de entrada do prédio 2 do Insper",
+        "descricao": "Você está no saguao de entrada do predio 2 do Insper",
         "opcoes": {
             "andar 2": "Tomar o elevador para o segundo andar",
-            "fablab": "Subir até o Fab Lab",
             "fumodromo": "Voltar para o fumodrómo"
         }
     },

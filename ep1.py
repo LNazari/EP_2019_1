@@ -217,11 +217,15 @@ def main():
     
     contador_biblioteca=0
     contador_aquarios=0
+    contador_fumodromo=0
+    contador_fablab=0
+    contador_objeto=0
 
     game_over = False
     while not game_over:
 
-
+        if atributos_jogador["hit points"]==0:
+            break
         cenario_atual = cenarios[nome_cenario_atual]
         cenario_anterior= nome_cenario_atual
 
@@ -255,8 +259,8 @@ def main():
                 game_over = True
                 
 
-            if contador_biblioteca==0 or contador_aquarios==0:
-                if escolha == "biblioteca":
+            if contador_biblioteca==0 or contador_aquarios==0 or contador_fablab==0 or contador_fumodromo==0 or contador_objeto==0:
+                if escolha == "biblioteca" and contador_biblioteca==0:
                     print(combate["luta 0"]["titulo"])
                     print()
                     print(combate["luta 0"]["nome"])
@@ -277,7 +281,7 @@ def main():
                         print("Sua indecisão foi sua ruína!")
                         game_over = True
                 
-                elif escolha== "aquarios":
+                elif escolha== "aquarios" and contador_aquarios==0:
                     print(combate["luta 1"]["titulo"])
                     print()
                     print(combate["luta 1"]["nome"])
@@ -297,7 +301,71 @@ def main():
                     else:
                         print("Sua indecisão foi sua ruína!")
                         game_over = True
+                        
+                elif escolha == "fumodromo" and contador_fumodromo==0:
+                    print(combate["luta 2"]["titulo"])
+                    print()
+                    print(combate["luta 2"]["nome"])
+                    print()
+                    print(combate["luta 2"]["fala"])
+                    print(combate["luta 2"]["nome"], ":", combate["luta 2"]["status_monstro"])
+                    print(jogador, ":", atributos_jogador)
+                    choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
+                    if choice == "lutar":
+                        print(luta(2))                       
+                        contador_fumodromo+=1  
+                    elif choice == "fugir":
+                        nome_cenario_atual = "inicio"
+                        print()
+                        print("Você voltou para o cenário anterior")
+                        print()
+                    else:
+                        print("Sua indecisão foi sua ruína!")
+                        game_over = True
+                        
+                elif escolha == "fablab" and contador_fablab==0:
+                    print(combate["luta 3"]["titulo"])
+                    print()
+                    print(combate["luta 3"]["nome"])
+                    print()
+                    print(combate["luta 3"]["fala"])
+                    print(combate["luta 3"]["nome"], ":", combate["luta 3"]["status_monstro"])
+                    print(jogador, ":", atributos_jogador)
+                    choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
+                    if choice == "lutar":
+                        print(luta(3))                       
+                        contador_fablab+=1  
+                    elif choice == "fugir":
+                        nome_cenario_atual = "andar 2"
+                        print()
+                        print("Você voltou para o cenário anterior")
+                        print()
+                    else:
+                        print("Sua indecisão foi sua ruína!")
+                        game_over = True
+                        
+                elif escolha == "objeto" and contador_objeto==0:
+                    print(combate["luta 4"]["titulo"])
+                    print()
+                    print(combate["luta 4"]["nome"])
+                    print()
+                    print(combate["luta 4"]["fala"])
+                    print(combate["luta 4"]["nome"], ":", combate["luta 4"]["status_monstro"])
+                    print(jogador, ":", atributos_jogador)
+                    choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
+                    if choice == "lutar":
+                        print(luta(4))                       
+                        contador_objeto+=1  
+                    elif choice == "fugir":
+                        nome_cenario_atual = "andar 2"
+                        print()
+                        print("Você voltou para o cenário anterior")
+                        print()
+                    else:
+                        print("Sua indecisão foi sua ruína!")
+                        game_over = True
                     
+                
 
                         
                  
