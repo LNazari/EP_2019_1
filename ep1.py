@@ -13,11 +13,7 @@ import time
 import sys
 
 #Váriaveis:
-atributos_jogador = {
-        "hit points": 100,
-        "pontos de ataque": 12,
-        "pontos de defesa": 7
-    }
+
 
 vida_jogador = atributos_jogador["hit points"]
 ataque_jogador = atributos_jogador["pontos de ataque"]
@@ -49,8 +45,7 @@ def carregar_monstros():
             "premio": "adaga",
             "status": {
                 "hit points": 15,
-                "pontos de ataque": 5,
-                "pontos de defesa": 4,
+                "pontos de ataque": 5
                 }
             },
         {
@@ -59,8 +54,7 @@ def carregar_monstros():
             "premio": "chave ss",
             "status": {
                 "hit points": 10,
-                "pontos de ataque": 2,
-                "pontos de defesa": 4
+                "pontos de ataque": 2
                 }
             },
         {
@@ -69,8 +63,8 @@ def carregar_monstros():
             "premio": "poção de vida",
             "status": {
                 "hit points": 5,
-                "pontos de ataque": 10,
-                "pontos de defesa": 1
+                "pontos de ataque": 10
+               
                 }
             },
         {
@@ -79,8 +73,8 @@ def carregar_monstros():
             "premio": "tapete deslizante",
             "status": {
                 "hit points": 50,
-                "pontos de ataque": 20,
-                "pontos de defesa": 10
+                "pontos de ataque": 20
+                
                 }
             },
         {
@@ -89,9 +83,30 @@ def carregar_monstros():
             "premio": "mapa",
             "status": {
                 "hit points": 65,
-                "pontos de ataque": 15,
-                "pontos de defesa": 20
+                "pontos de ataque": 15
+                
                 }
+            },
+            
+            {
+            "nome": "Barbara",
+            "fala": "Bar Bar Bar ba ra Ann, The beach Boys",
+            "premio": "Espada master blaster dos reis do alem",
+            "status": {
+                    "hit points": 85,
+                    "pontos de ataque": 18
+                                      
+                    }
+            },
+        {
+            "nome": "Tosh",
+            "fala": "mestre dos magos",
+            "premio": "ganho um A+ no EP",
+            "status": {
+                    "hit points": 120,
+                    "pontos de ataque": 25,
+                                      
+                    }
             }
         ]
     return monstros
@@ -136,9 +151,23 @@ def carregar_combate():
                 "fala": monstros[4]["fala"],
                 "status_monstro": monstros[4]["status"],
                 "opcoes": "lutar ou fugir? " 
-            
-            
-        }
+                
+        },
+        "luta 5": {
+                "titulo": "Bar bar bar ra Ann",
+                "nome": monstros[5]["nome"],
+                "fala": monstros[5]["fala"],
+                "status_monstro": monstros[5]["status"],
+                "opcoes": "lutar ou fugir? " 
+                
+        },
+        "luta 6": {
+                "titulo": "Voce encontrou o mestre dos magos, lute pela sua nota no Ep",
+                "nome": monstros[6]["nome"],
+                "fala": monstros[6]["fala"],
+                "status_monstro": monstros[6]["status"],
+                "opcoes": "lutar ou fugir? " 
+        }           
     }
     return combate
 
@@ -150,11 +179,9 @@ def carregar_atributos(atributos, inventario):
     contador_adaga=0
     if contador_adaga == 0:
         if "adaga" in inventario_jogador:
-            atributos_jogador["pontos de ataque"] += 10
+            atributos_jogador["pontos de ataque"]= 22
             contador_adaga +=1
 
-    if "escudo" in inventario_jogador:
-        atributos_jogador["pontos de defesa"] += 10
 
 
     return atributos_jogador
@@ -229,6 +256,9 @@ def main():
     contador_fumodromo=0
     contador_fablab=0
     contador_objeto=0
+    contador_barbara=0
+    contador_tosh=0
+    
 
     game_over = False
     while not game_over:
@@ -259,6 +289,8 @@ def main():
                 print("{0}: {1}".format(k,v))
             escolha = input("O que você quer fazer? ")
             print()
+            
+            
             
             cenario_anterior= nome_cenario_atual
             nome_cenario_atual=escolha
@@ -382,7 +414,7 @@ def main():
                         print()
                         print("Parece que esse monstro deixou um prêmio para você:", monstros[4]["premio"])
                         print("Este item permite você ter acesso para usar o toboga multidimensional para todos lugares")
-                        inventario_jogador.append(monstros[0]["premio"])                       
+                        inventario_jogador.append(monstros[4]["premio"])                       
                         contador_objeto+=1  
                     elif choice == "fugir":
                         nome_cenario_atual = cenario_anterior
@@ -393,7 +425,68 @@ def main():
                         print("Sua indecisão foi sua ruína!")
                         game_over = True
                     
-                
+                elif escolha == "portal 2" and contador_barbara==0:
+                    print(combate["luta 5"]["titulo"])
+                    print()
+                    print(combate["luta 5"]["nome"])
+                    print()
+                    print(combate["luta 5"]["fala"])
+                    print(combate["luta 5"]["nome"], ":", combate["luta 5"]["status_monstro"])
+                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
+                    choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
+                    if choice == "lutar":
+                        print(luta(5))
+                        print()
+                        print("Parece que esse monstro deixou um prêmio para você:", monstros[4]["premio"])
+                        print("Este item permite você ter acesso para usar o toboga multidimensional para todos lugares")
+                        inventario_jogador.append(monstros[5]["premio"])                       
+                        contador_barbara+=1  
+                    elif choice == "fugir":
+                        nome_cenario_atual = cenario_anterior
+                        print()
+                        print("Você voltou para o cenário anterior")
+                        print()
+                    else:
+                        print("Sua indecisão foi sua ruína!")
+                        game_over = True
+                        
+                        
+                elif escolha == "tosh" and contador_tosh==0:
+                    print(combate["luta 6"]["titulo"])
+                    print()
+                    print(combate["luta 6"]["nome"])
+                    print()
+                    print(combate["luta 6"]["fala"])
+                    print(combate["luta 6"]["nome"], ":", combate["luta 6"]["status_monstro"])
+                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
+                    choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
+                    if choice == "lutar":
+                        print(luta(6))
+                        print()
+                        print("Parece que esse monstro deixou um prêmio para você:", monstros[4]["premio"])
+                        print("Este item permite você ter acesso para usar o toboga multidimensional para todos lugares")
+                        inventario_jogador.append(monstros[6]["premio"])                       
+                        contador_tosh+=1
+                        if monstros[6]["status"]["hit points"] + defesa_monstros <= 0:
+                            print()
+                            print("Voce venceu o Tosh e ganhou um A no EP")
+                            print()
+                            print("parabens!")
+                            print()
+                            print("obrigado por jogar")
+                            time.sleep(2)
+                            print("No entanto, era tudo uma mentira, voce nunca ganhou a luta contra o tosh")
+                            print()
+                            print("Ninguem nunca ganha do Tosh")
+                            break
+                    elif choice == "fugir":
+                        nome_cenario_atual = cenario_anterior
+                        print()
+                        print("Você voltou para o cenário anterior")
+                        print()
+                    else:
+                        print("Sua indecisão foi sua ruína!")
+                        game_over = True
 
                         
                  

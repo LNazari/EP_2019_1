@@ -104,11 +104,29 @@
         "descricao": "No lugar do objeto suspeito havia um pano, você o remove e descobre uma grande entrada:\n E uma porta dimensional que concede acesso para te levar qualquer lugar, com uma condição:\n Basta ter o 'mapa' em seu inventario e dizer o nome em que deseja ir\n ",
         "opcoes": {
             "dizer": "Dizer o nome da sala em que deseja ir",
-            "portal 1": "Teletransportar para sala do Marcos Lisboa",
             "portal 2": "Teletransportar para a sala do ... (CUIDADO! Esta opcao e perigosa demais e voce nao tera como voltar dela depois que selecionar, pense bem antes de entrar!)"
         }
     },
-
+    
+    
+    "portal 2": {
+        "titulo": "Sala de combate com Bar bar bar ra Ann",
+        "descricao": "O tosh esta chegando",
+        "opcoes": {
+            "objeto": "Voltar para o toboga dimensional",
+            "tosh": "Chefao final"
+            
+        }
+    },
+    
+    "tosh": {
+        "titulo": "mestre dos magos",
+        "descricao": "voce chegou ao chefe final, ganhe a luta para ganhar A no EP",
+        "opcoes": {
+            "portal 2": "Voltar para a sala anterior"
+                
+        }
+    },
     "fablab": {
         "titulo": "Laboratorio do Doutor Estranho",
         "descricao": "Aqui se encontra um local de fabricações profissionais, tome cuidado!",
