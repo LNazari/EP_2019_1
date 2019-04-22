@@ -14,7 +14,8 @@
         "descricao": "Voce chegou ao andar da sala do seu professor",
         "opcoes": {
             "inicio": "Tomar o elevador para o saguao de entrada",
-            "sauna dos professores": "Ir ao local de relaxamento dos professores"
+            "sauna dos professores": "Ir ao local de relaxamento dos professores",
+            "professor": "Falar com o professor"
         }
     },
 

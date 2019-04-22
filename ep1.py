@@ -154,10 +154,6 @@ def carregar_atributos(atributos):
     return atributos
 
 
-def carregar_inventario(inventario):
-    return inventario
-
-
 def luta(i):
     monstros= carregar_monstros()
     defesa_monstros = monstros[i]["status"]["pontos de defesa"] 
@@ -234,7 +230,7 @@ def main():
     game_over = False
     while not game_over:
 
-        if atributos_jogador["hit points"]==0:
+        if atributos_jogador["hit points"]==0: #alterar pra conceito de vida (hit points + defesa)
             break
         cenario_atual = cenarios[nome_cenario_atual]
         cenario_anterior= nome_cenario_atual
@@ -246,7 +242,7 @@ def main():
         print()
         print(cenario_atual["descricao"])
         print()
-        print("Seu inventário:", carregar_inventario(inventario_jogador))
+        print("Seu inventário:", inventario_jogador)
         
         opcoes = cenario_atual['opcoes']
         if len(opcoes) == 0:
@@ -331,7 +327,10 @@ def main():
                     print(jogador, ":", atributos_jogador)
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
-                        print(luta(2))                       
+                        print(luta(2))
+                        print()
+                        print("Parece que esse monstro deixou um prêmio para você:", monstros[2]["premio"])
+                        print("Este item recupera sua vida em 100 hit points")                       
                         contador_fumodromo+=1  
                     elif choice == "fugir":
                         nome_cenario_atual = cenario_anterior
@@ -352,7 +351,10 @@ def main():
                     print(jogador, ":", atributos_jogador)
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
-                        print(luta(3))                       
+                        print(luta(3))
+                        print()
+                        print("Parece que esse monstro deixou um prêmio para você:", monstros[3]["premio"])
+                        print("Este item permite você ter acesso ao toboga multidimensional")                      
                         contador_fablab+=1  
                     elif choice == "fugir":
                         nome_cenario_atual = cenario_anterior
@@ -373,7 +375,10 @@ def main():
                     print(jogador, ":", atributos_jogador)
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
-                        print(luta(4))                       
+                        print(luta(4))
+                        print()
+                        print("Parece que esse monstro deixou um prêmio para você:", monstros[4]["premio"])
+                        print("Este item permite você ter acesso para usar o toboga multidimensional para todos lugares")                       
                         contador_objeto+=1  
                     elif choice == "fugir":
                         nome_cenario_atual = cenario_anterior
@@ -409,3 +414,9 @@ def main():
 # Programa principal.
 if __name__ == "__main__":
     main()
+
+#ideias, para acessar a sala real do andrew somente pelo toboga e ai comecaria a boss fight final
+#para acessar o toboga ele precisa dos seguintes itens em seu inventario = tapete deslizante
+#quando usar o toboga para chegar a sala real do andrew vai ser feito uma condicao para ver se ele tem os itens necessarios
+#se ele tiver a luta começa e ai ele pode escolher se quer usar pocao de vida ou nao
+#o andar professor serve somente para recreação e o jogador pode encontrar itens la, como: poção de vida.
