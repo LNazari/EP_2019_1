@@ -227,6 +227,9 @@ def main():
     contador_fumodromo=0
     contador_fablab=0
     contador_objeto=0
+    vida_jogador = atributos_jogador["hit points"]
+    ataque_jogador = atributos_jogador["pontos de ataque"]
+    defesa_jogador = atributos_jogador["pontos de defesa"]
 
     game_over = False
     while not game_over:
