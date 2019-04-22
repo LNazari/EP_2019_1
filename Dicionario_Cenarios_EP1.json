@@ -38,7 +38,7 @@
         "descricao": "Local de estudo que nunca tem salas sobrando",
         "opcoes":{
             "biblioteca": "Voltar a biblioteca",
-            "sala secreta": "Ir para a sala secreta",         
+            "sala secreta": "Ir para a sala secreta"         
         }    
     },    
 
@@ -129,6 +129,7 @@
             }
         }
 }
+
 
 
             
