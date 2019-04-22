@@ -16,7 +16,6 @@ import sys
 atributos_jogador = {
         "hit points": 100,
         "pontos de ataque": 12,
-        "pontos de defesa": 7
     }
 
 vida_jogador = atributos_jogador["hit points"]
@@ -49,8 +48,7 @@ def carregar_monstros():
             "premio": "adaga",
             "status": {
                 "hit points": 15,
-                "pontos de ataque": 5,
-                "pontos de defesa": 4,
+                "pontos de ataque": 5
                 }
             },
         {
@@ -59,8 +57,7 @@ def carregar_monstros():
             "premio": "chave ss",
             "status": {
                 "hit points": 10,
-                "pontos de ataque": 2,
-                "pontos de defesa": 4
+                "pontos de ataque": 2
                 }
             },
         {
@@ -69,28 +66,25 @@ def carregar_monstros():
             "premio": "poção de vida",
             "status": {
                 "hit points": 5,
-                "pontos de ataque": 10,
-                "pontos de defesa": 1
+                "pontos de ataque": 10
                 }
             },
         {
             "nome": "Daniel Guzzo",
             "fala": "Você veio ao FAB LAB, pois bem QUERO UM PROTÓTIPO!",
-            "premio": "tapete deslizante",
+            "premio": "poção de vida",
             "status": {
                 "hit points": 50,
-                "pontos de ataque": 20,
-                "pontos de defesa": 10
+                "pontos de ataque": 20
                 }
             },
         {
             "nome": "Paulina",
             "fala": "Iterar e Graficar...",
-            "premio": "mapa",
+            "premio": "tapete deslizante",
             "status": {
                 "hit points": 65,
-                "pontos de ataque": 15,
-                "pontos de defesa": 20
+                "pontos de ataque": 15
                 }
             }
         ]
@@ -143,29 +137,25 @@ def carregar_combate():
     return combate
 
 
-def carregar_atributos(atributos, inventario):
-    atributos_jogador = atributos
+def jogador(inventario):
+    vida_jogador = 100
+    ataque_jogador = 12
 
     inventario_jogador = inventario
-    contador_adaga=0
-    if contador_adaga == 0:
+
+    for l in inventario:
         if "adaga" in inventario_jogador:
-            atributos_jogador["pontos de ataque"] += 10
-            contador_adaga +=1
-
-    if "escudo" in inventario_jogador:
-        atributos_jogador["pontos de defesa"] += 10
+            ataque_jogador += 10
 
 
-    return atributos_jogador
-
+    return vida_jogador, ataque_jogador
 
 def luta(i):
     monstros= carregar_monstros()
-    defesa_monstros = monstros[i]["status"]["pontos de defesa"] 
-    vida_monstros = monstros[i]["status"]["hit points"] + defesa_monstros
-    vida_jogador = carregar_atributos(atributos_jogador, inventario_jogador)["hit points"] + carregar_atributos(atributos_jogador, inventario_jogador)["pontos de defesa"]
-    ataque_jogador = carregar_atributos(atributos_jogador, inventario_jogador)["pontos de ataque"]
+    x,y = jogador(inventario)
+    vida_monstros = monstros[i]["status"]["hit points"]
+    vida_jogador = x
+    ataque_jogador = y
     ataque_monstro = monstros[i]["status"]["pontos de ataque"]
 
     contador_da_vez= randint(1,2)
@@ -175,7 +165,7 @@ def luta(i):
             print("Sua vez de atacar")
             print()
             print("Você causou {0} de dano".format(ataque_jogador))
-            vida_monstros-= ataque_jogador
+            vida_monstros= vida_monstros + defesa_monstros - ataque_jogador
             if vida_monstros < 0:
                 vida_monstros = 0
                 print("O monstro morreu")
@@ -186,17 +176,17 @@ def luta(i):
             print("É a vez do monstro de atacar")
             print()
             print("O monstro causou {0} de dano".format(ataque_monstro))
-            vida_jogador -= ataque_monstro
-            if vida_jogador < 0:
-                vida_jogador = 0
+            vida_jogador= vida_jogador + defesa_jogador - ataque_monstro
+            if carregar_atributos(atributos_jogador, inventario_jogador, i)["hit points"] < 0:
+                carregar_atributos(atributos_jogador, inventario_jogador, i)["hit points"] = 0
                 print("Voce morreu")
                 game_over = True
-            print("Após o ataque do monstro, sua vida ficou: {0}".format(atributos_jogador["hit points"]))
+            print("Após o ataque do monstro, sua vida ficou: {0}".format(vida_jogador))
             print()
             
             
         contador_da_vez+=1
-    return "Fim da luta"
+    return vida_jogador
 
 
 
@@ -204,7 +194,7 @@ def luta(i):
 def main():
     jogador = input("Diga seu nome aventureiro: ")
     print()
-    print("Olá {0}, seus atributos são {1} e você começa com sua carteirinha do Insper em seu inventário".format(jogador, carregar_atributos(atributos_jogador, inventario_jogador)))
+    print("Olá {0}, seus atributos são {1} e você começa com sua carteirinha do Insper em seu inventário".format(jogador, atributos_jogador))
     print()
     pronto= input("voce esta pronto?: ")
     print("Vamos comecar")
@@ -276,7 +266,7 @@ def main():
                     print()
                     print(combate["luta 0"]["fala"])
                     print(combate["luta 0"]["nome"], ":", combate["luta 0"]["status_monstro"])
-                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
+                    print(jogador, ":", atributos_jogador)
                     choice = input("O que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
                         print(luta(0))
@@ -301,7 +291,7 @@ def main():
                     print()
                     print(combate["luta 1"]["fala"])
                     print(combate["luta 1"]["nome"], ":", combate["luta 1"]["status_monstro"])
-                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
+                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador, i))
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
                         print(luta(1))
@@ -326,7 +316,7 @@ def main():
                     print()
                     print(combate["luta 2"]["fala"])
                     print(combate["luta 2"]["nome"], ":", combate["luta 2"]["status_monstro"])
-                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
+                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador, i))
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
                         print(luta(2))
@@ -351,7 +341,7 @@ def main():
                     print()
                     print(combate["luta 3"]["fala"])
                     print(combate["luta 3"]["nome"], ":", combate["luta 3"]["status_monstro"])
-                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
+                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador, i))
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
                         print(luta(3))
@@ -375,7 +365,7 @@ def main():
                     print()
                     print(combate["luta 4"]["fala"])
                     print(combate["luta 4"]["nome"], ":", combate["luta 4"]["status_monstro"])
-                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador))
+                    print(jogador, ":", carregar_atributos(atributos_jogador, inventario_jogador, i))
                     choice = input("o que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
                         print(luta(4))
@@ -404,7 +394,8 @@ def main():
             
             else:
                 if escolha in opcoes:
-                    nome_cenario_atual=escolha
+                    if escolha == "objeto" and "tapete deslizante" in inventario:
+                        nome_cenario_atual=escolha
                     
             
     morte = "Voce morreu!\n"
