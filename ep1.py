@@ -53,7 +53,7 @@ def carregar_monstros():
         {
             "nome": "Bibliotecaria",
             "fala": "Ora ora se não é um forasteiro perdido procurando alguns livros.",
-            "prêmio": "adaga"
+            "premio": "adaga",
             "status": {
                 "hit points": 15,
                 "pontos de ataque": 5,
@@ -63,7 +63,7 @@ def carregar_monstros():
         {
             "nome": "Veterano",
             "fala": "Hahahaha, eu cursei anoooos de INSPER, acha mesmo que pode me derrotar?????",
-            "prêmio": "chave ss"
+            "premio": "chave ss",
             "status": {
                 "hit points": 10,
                 "pontos de ataque": 2,
@@ -73,7 +73,7 @@ def carregar_monstros():
         {
             "nome": "Fumante",
             "fala": "Cof... Cof... Se você veio pedir um trago, pode ir se preparando pra levar um pé na bunda",
-            "prêmio": "poção de vida"
+            "premio": "poção de vida",
             "status": {
                 "hit points": 5,
                 "pontos de ataque": 10,
@@ -83,7 +83,7 @@ def carregar_monstros():
         {
             "nome": "Daniel Guzzo",
             "fala": "Você veio ao FAB LAB, pois bem QUERO UM PROTÓTIPO!",
-            "prêmio": "tapete deslizante"
+            "premio": "tapete deslizante",
             "status": {
                 "hit points": 50,
                 "pontos de ataque": 20,
@@ -93,7 +93,7 @@ def carregar_monstros():
         {
             "nome": "Paulina",
             "fala": "Iterar e Graficar...",
-            "prêmio": "mapa"
+            "premio": "mapa",
             "status": {
                 "hit points": 65,
                 "pontos de ataque": 15,
@@ -219,6 +219,7 @@ def main():
 
     cenarios, nome_cenario_atual = carregar_cenarios()
     combate = carregar_combate()
+    monstros = carregar_monstros()
     
     contador_biblioteca=0
     contador_aquarios=0
@@ -275,7 +276,13 @@ def main():
                     print(jogador, ":", atributos_jogador)
                     choice = input("O que deseja fazer: 'lutar' ou 'fugir'? ")
                     if choice == "lutar":
-                        print(luta(0))                       
+                        print(luta(0))
+                        print()
+                        print("Parece que esse monstro deixou um prêmio para você:", monstros[0]["premio"])
+                        print("Este item adiciona 10 pontos de ataque ao seu avatar")
+                        inventario_jogador.append(monstros[0]["premio"])
+                        if "adaga" in inventario_jogador:
+                            ataque_jogador += 10
                         contador_biblioteca+=1  
                     elif choice == "fugir":
                         nome_cenario_atual = cenario_anterior
@@ -299,7 +306,7 @@ def main():
                         print(luta(1))                       
                         contador_aquarios+=1  
                     elif choice == "fugir":
-                        nome_cenario_atual = "inicio"
+                        nome_cenario_atual = cenario_anterior
                         print()
                         print("Você voltou para o cenário anterior")
                         print()
@@ -320,7 +327,7 @@ def main():
                         print(luta(2))                       
                         contador_fumodromo+=1  
                     elif choice == "fugir":
-                        nome_cenario_atual = "inicio"
+                        nome_cenario_atual = cenario_anterior
                         print()
                         print("Você voltou para o cenário anterior")
                         print()
@@ -341,7 +348,7 @@ def main():
                         print(luta(3))                       
                         contador_fablab+=1  
                     elif choice == "fugir":
-                        nome_cenario_atual = "andar 2"
+                        nome_cenario_atual = cenario_anterior
                         print()
                         print("Você voltou para o cenário anterior")
                         print()
@@ -362,7 +369,7 @@ def main():
                         print(luta(4))                       
                         contador_objeto+=1  
                     elif choice == "fugir":
-                        nome_cenario_atual = "andar 2"
+                        nome_cenario_atual = cenario_anterior
                         print()
                         print("Você voltou para o cenário anterior")
                         print()
