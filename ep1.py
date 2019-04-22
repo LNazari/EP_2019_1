@@ -145,19 +145,17 @@ def carregar_combate():
 
 def carregar_atributos(atributos, inventario):
     atributos_jogador = atributos
-    ataque_jogador = atributos_jogador["pontos de ataque"]
-    defesa_jogador = atributos_jogador["pontos de defesa"]
-
+    
     inventario_jogador = inventario
 
     if "adaga" in inventario_jogador:
-        ataque_jogador += 10
+        atributos_jogador["pontos de ataque"] += 10
 
     if "escudo" in inventario_jogador:
-        defesa_jogador += 10
+        atributos_jogador["pontos de defesa"] += 10
 
 
-    return atributos
+    return atributos_jogador
 
 
 def luta(i):
